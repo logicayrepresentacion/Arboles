@@ -42,7 +42,5 @@ public class NodoBinario<T> {
     public String toString() {
         return dato.toString();
     }
-    
-    
 
 }

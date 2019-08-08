@@ -216,7 +216,6 @@ public class ArbolBinarioListaLigada<E> {
         NodoNario q = null;
         NodoBinario xBinario = raizBinario;
         NodoBinario ultimoBinario = xBinario;
-
         Stack pila = new Stack();
         while (p != null) {
             if (p.getSw() == 0) {
@@ -229,7 +228,7 @@ public class ArbolBinarioListaLigada<E> {
             }
             ultimoBinario.setLi(xBinario);
             ultimoBinario = xBinario;
-            p = q.getLiga();
+            p = p.getLiga(); // que tal si es p y no q?
             while (p != null) {
                 if (p.getSw() == 0) {
                     xBinario = new NodoBinario(p.getDato());
@@ -241,7 +240,7 @@ public class ArbolBinarioListaLigada<E> {
                 }
                 ultimoBinario.setLd(xBinario);
                 ultimoBinario = xBinario;
-                p = q.getLiga();
+                p = p.getLiga();
             }
             if (!pila.isEmpty()) {
                 p = (NodoNario) pila.pop();
