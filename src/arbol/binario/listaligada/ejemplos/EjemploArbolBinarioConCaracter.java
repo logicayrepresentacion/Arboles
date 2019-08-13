@@ -51,11 +51,13 @@ public class EjemploArbolBinarioConCaracter {
         NodoBinarioBusqueda n = new NodoBinarioBusqueda("n");
         NodoBinarioBusqueda o = new NodoBinarioBusqueda("o");
         NodoBinarioBusqueda p = new NodoBinarioBusqueda("p");
+        NodoBinarioBusqueda r = new NodoBinarioBusqueda("r");
         
         h.setLd(i);
         e.setLi(g);
         e.setLd(h);
         c.setLi(e);
+        c.setLd(r);
         b.setLi(c);
         b.setLd(d);
         d.setLi(f);
@@ -67,6 +69,7 @@ public class EjemploArbolBinarioConCaracter {
         m.setLi(n);
         m.setLd(o);
         o.setLd(p);
+        
         
         ArbolBinarioListaLigada.inorden(a);
         System.out.println("");

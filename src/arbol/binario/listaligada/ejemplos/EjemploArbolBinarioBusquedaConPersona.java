@@ -29,7 +29,7 @@ import arbol.binario.listaligada.busqueda.NodoBinarioBusqueda;
  *
  * @author Alejandro
  */
-public class EjemploArbolBinarioConPersona {
+public class EjemploArbolBinarioBusquedaConPersona {
 
     /**
      * @param args the command line arguments

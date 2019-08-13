@@ -24,7 +24,6 @@ package arbol.binario.listaligada.ejemplos;
 
 import arbol.binario.listaligada.ArbolBinarioListaLigada;
 import arbol.binario.listaligada.NodoBinario;
-import arbol.binario.listaligada.busqueda.NodoBinarioBusqueda;
 
 /**
  *
@@ -37,8 +36,13 @@ public class EjemploReconstruccionConCaracter {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        String inorden = "gehicbfdajklnmop";
-        String preorden = "abceghidflkjmnop";
+        //String inorden = "gehicbfdajklnmop";
+        //String preorden = "abceghidflkjmnop";
+        
+        String inorden = "gehicrbfdajklnmop";
+                          
+        String preorden = "abceghirdflkjmnop"; 
+                
         
         Character[] inordenCH  = convertirChar2Character( inorden );
         Character[] preordenCH = convertirChar2Character( preorden );

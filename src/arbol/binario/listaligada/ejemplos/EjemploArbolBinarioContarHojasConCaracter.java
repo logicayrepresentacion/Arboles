@@ -23,13 +23,13 @@
 package arbol.binario.listaligada.ejemplos;
 
 import arbol.binario.listaligada.ArbolBinarioListaLigada;
-import arbol.binario.listaligada.busqueda.NodoBinarioBusqueda;
+import arbol.binario.listaligada.NodoBinario;
 
 /**
  *
  * @author alejandroescobar
  */
-public class EjemploArbolBinarioConCaracter {
+public class EjemploArbolBinarioContarHojasConCaracter {
 
     /**
      * @param args the command line arguments

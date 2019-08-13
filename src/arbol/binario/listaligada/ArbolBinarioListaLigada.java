@@ -54,6 +54,10 @@ public class ArbolBinarioListaLigada<E> {
 
     /**
      * Para la construcción de un arbol con las cadenas PRE e IN
+     * @param preorden es una arreglo de caracteres para el preorden
+     * @param inorden es un arreglo de caracteres para el inorden
+     * @return Nodo raiz del arbol
+     * @throws java.lang.Exception
      */
     public static NodoBinario construyeArbolCadenaPREyIN(Character[] preorden, Character[] inorden) throws Exception {
         NodoBinario r = reconstuir(preorden, inorden);
@@ -152,6 +156,8 @@ public class ArbolBinarioListaLigada<E> {
     }
 
     /**
+     * Se propone hacer estos metodos para contar las hojas
+     * 
     public static void contarHojas() {
         int numeroHojas = 0;
         numeroHojas = contarHojasRecursivo(raiz, numeroHojas);
