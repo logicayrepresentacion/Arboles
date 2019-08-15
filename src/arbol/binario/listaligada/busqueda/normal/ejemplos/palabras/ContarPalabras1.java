@@ -20,13 +20,13 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.busqueda.ejemplos.palabras;
+package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
 
 /**
  *
  * @author Alejandro
  */
-public class ContarPalabrasDesdeArchivo {
+public class ContarPalabras1 {
 
     public static void main(String[] args) {
 
@@ -69,18 +69,20 @@ public class ContarPalabrasDesdeArchivo {
                 + "Un día en que discurren vientos ineluctables\n"
                 + "¡un día en que ya nadie nos puede retener!";
         String[] cadenas = cadena.split(" ");
-
-        long timea = System.currentTimeMillis();
-        System.out.println("Date " + timea);
-
+        
         IndicePalabrasABB indice = new IndicePalabrasABB();
 
-        for (String cad : cadenas) {
-            indice.insertar(new Palabra(cad));
+    
+        for( String cad : cadenas){
+            indice.insertar(   new Palabra(cad));
         }
-
+        long timea = System.currentTimeMillis();
+        System.out.println("Date " + timea);
+        indice.imprimirCantidades();
         long timeb = System.currentTimeMillis();
         System.out.println("Date " + timeb);
         System.out.println("Tiempo " + (timeb - timea));
+        //abb.recorrido1();
+        //abb.recorrido2();
     }
 }

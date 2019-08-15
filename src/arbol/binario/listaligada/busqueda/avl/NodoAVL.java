@@ -22,7 +22,7 @@
  */
 package arbol.binario.listaligada.busqueda.avl;
 
-import arbol.binario.listaligada.busqueda.NodoBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
 
 /**
  *

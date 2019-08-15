@@ -20,48 +20,48 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada;
+package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
 
-/**
- *
- * @author Alejandro
- * @param <T>
- */
-public class NodoBinario<T> {
+public class Palabra implements Comparable<Palabra> {
 
-    protected final T dato;
-    private NodoBinario<T> li;
-    private NodoBinario<T> ld;
+    private String cadena;
+    private int contador = 0;
 
-    public NodoBinario(T dato) {
-        this.dato = dato;
+    public Palabra(String palabra) {
+        this.cadena = palabra;
     }
 
-
-    public T getDato() {
-        return dato;
+    public String getPalabra() {
+        return cadena;
     }
 
-    public NodoBinario<T> getLi() {
-        return li;
+    public void setPalabra(String palabra) {
+        this.cadena = palabra;
     }
 
-    public void setLi(NodoBinario<T> li) {
-        this.li = li;
+    public int getContador() {
+        return contador;
     }
 
-    public NodoBinario<T> getLd() {
-        return ld;
+    public void setContador(int contador) {
+        this.contador = contador;
     }
 
-    public void setLd(NodoBinario<T> ld) {
-        this.ld = ld;
+    public void aumentar() {
+        this.contador++;
     }
 
 
     @Override
     public String toString() {
-        return dato.toString();
+        return cadena + ":" + contador;
+    }
+
+    @Override
+    public int compareTo(Palabra o) {
+        Palabra t = (Palabra) o;
+        String pb = t.getPalabra();
+        return cadena.compareToIgnoreCase(pb);
     }
 
 }

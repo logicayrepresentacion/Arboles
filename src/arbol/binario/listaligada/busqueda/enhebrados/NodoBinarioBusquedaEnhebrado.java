@@ -20,37 +20,50 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.busqueda.ejemplos.recorridos;
+package arbol.binario.listaligada.busqueda.enhebrados;
 
-import arbol.binario.listaligada.ArbolBinarioListaLigada;
-import arbol.binario.listaligada.busqueda.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
 
 /**
  *
- * @author Alejandro
+ * @author Alejandro Escobar
+ * @param <T>
  */
-public class EjemploRecorridos1y2 {
+public class NodoBinarioBusquedaEnhebrado<T extends Comparable> extends NodoBinarioBusqueda {
 
-    public static void main(String[] args) {
+    private boolean bi;
+    private boolean bd;
 
-        ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
-        abb.insertar('a');
-        abb.insertar('b');
-        abb.insertar('d');
-        abb.insertar('f');
-        abb.insertar('c');
-        abb.insertar('e');
-        abb.recorrido1();
-        System.out.println("");
-        abb.recorrido2();
-        System.out.println("");
-        ArbolBinarioListaLigada.inorden(abb.getRaiz());
-        System.out.println("");
-        if (abb.buscar('f') == null) {
-            System.out.println("No esta");
-
-        } else {
-            System.out.println("Si esta");
-        }
+    public NodoBinarioBusquedaEnhebrado(T d) {
+        super(d);
     }
+
+    public boolean isBd() {
+        return bd;
+    }
+
+    public boolean isBi() {
+        return bi;
+    }
+
+    public void setBd(boolean bd) {
+        this.bd = bd;
+    }
+
+    public void setBi(boolean bi) {
+        this.bi = bi;
+    }
+
+    
+    public NodoBinarioBusquedaEnhebrado getLdBE() {
+        return (NodoBinarioBusquedaEnhebrado) super.getLd(); 
+    }
+
+    
+    public NodoBinarioBusquedaEnhebrado getLiBE() {
+        return (NodoBinarioBusquedaEnhebrado) super.getLi(); 
+    }
+
+    
+    
 }

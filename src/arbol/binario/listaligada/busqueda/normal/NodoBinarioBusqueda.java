@@ -20,50 +20,27 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.enhebrados;
+package arbol.binario.listaligada.busqueda.normal;
 
-import arbol.binario.listaligada.busqueda.NodoBinarioBusqueda;
+import arbol.binario.listaligada.normal.NodoBinario;
 
 /**
  *
- * @author Alejandro Escobar
+ * @author Alejandro
  * @param <T>
  */
-public class NodoBinarioBusquedaEnhebrado<T extends Comparable> extends NodoBinarioBusqueda {
+public class NodoBinarioBusqueda<T extends Comparable> extends NodoBinario<T> {
 
-    private boolean bi;
-    private boolean bd;
-
-    public NodoBinarioBusquedaEnhebrado(T d) {
-        super(d);
+    public NodoBinarioBusqueda(T dato) {
+        super(dato);
     }
 
-    public boolean isBd() {
-        return bd;
+    @Override
+    public T getDato() {
+        return dato;
     }
-
-    public boolean isBi() {
-        return bi;
-    }
-
-    public void setBd(boolean bd) {
-        this.bd = bd;
-    }
-
-    public void setBi(boolean bi) {
-        this.bi = bi;
-    }
-
     
-    public NodoBinarioBusquedaEnhebrado getLdBE() {
-        return (NodoBinarioBusquedaEnhebrado) super.getLd(); 
-    }
-
     
-    public NodoBinarioBusquedaEnhebrado getLiBE() {
-        return (NodoBinarioBusquedaEnhebrado) super.getLi(); 
-    }
-
     
     
 }

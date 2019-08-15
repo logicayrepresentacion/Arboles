@@ -20,48 +20,37 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.busqueda.ejemplos.palabras;
+package arbol.binario.listaligada.busqueda.normal.ejemplos.recorridos;
 
-public class Palabra implements Comparable<Palabra> {
+import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
 
-    private String cadena;
-    private int contador = 0;
+/**
+ *
+ * @author Alejandro
+ */
+public class EjemploRecorridos1y2 {
 
-    public Palabra(String palabra) {
-        this.cadena = palabra;
+    public static void main(String[] args) {
+
+        ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
+        abb.insertar('a');
+        abb.insertar('b');
+        abb.insertar('d');
+        abb.insertar('f');
+        abb.insertar('c');
+        abb.insertar('e');
+        abb.recorrido1();
+        System.out.println("");
+        abb.recorrido2();
+        System.out.println("");
+        ArbolBinarioListaLigada.inorden(abb.getRaiz());
+        System.out.println("");
+        if (abb.buscar('f') == null) {
+            System.out.println("No esta");
+
+        } else {
+            System.out.println("Si esta");
+        }
     }
-
-    public String getPalabra() {
-        return cadena;
-    }
-
-    public void setPalabra(String palabra) {
-        this.cadena = palabra;
-    }
-
-    public int getContador() {
-        return contador;
-    }
-
-    public void setContador(int contador) {
-        this.contador = contador;
-    }
-
-    public void aumentar() {
-        this.contador++;
-    }
-
-
-    @Override
-    public String toString() {
-        return cadena + ":" + contador;
-    }
-
-    @Override
-    public int compareTo(Palabra o) {
-        Palabra t = (Palabra) o;
-        String pb = t.getPalabra();
-        return cadena.compareToIgnoreCase(pb);
-    }
-
 }

@@ -22,8 +22,6 @@
  */
 package arbol.binario.listaligada.busqueda.avl.ejemplos.palabras;
 
-import arbol.binario.listaligada.busqueda.ejemplos.palabras.*;
-
 public class Palabra implements Comparable<Palabra> {
 
     private String cadena;

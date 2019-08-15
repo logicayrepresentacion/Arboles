@@ -20,34 +20,27 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.busqueda.ejemplos.palabras;
+package arbol.binario.listaligada.busqueda.normal.ejemplos.varios;
 
-import arbol.binario.listaligada.busqueda.ArbolBinarioBusqueda;
-import arbol.binario.listaligada.busqueda.NodoBinarioBusqueda;
+import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
 
 /**
  *
  * @author Alejandro
  */
-public class ContarPalabrasSimple {
+public class EjemploInsertar {
 
     public static void main(String[] args) {
 
         ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
-
-        Palabra p = new Palabra("alejandro");
-        NodoBinarioBusqueda nodoInsert = abb.insertar(p);
-
-        Palabra pinsertada = (Palabra) nodoInsert.getDato();
-        pinsertada.aumentar();
-
-        System.out.println("Pinsertada " + pinsertada);
-
-        p = new Palabra("alejandrO");
-        nodoInsert = abb.insertar(p);
-        pinsertada = (Palabra) nodoInsert.getDato();
-        pinsertada.aumentar();
-        System.out.println("Pinsertada " + pinsertada);
-
+        abb.insertar('a');
+        abb.insertar('b');
+        abb.insertar('d');
+        abb.insertar('f');
+        abb.insertar('c');
+        abb.insertar('e');
+        System.out.println("Pare ");
+        
     }
 }

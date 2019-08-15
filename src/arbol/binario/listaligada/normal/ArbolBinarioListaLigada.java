@@ -20,7 +20,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada;
+package arbol.binario.listaligada.normal;
 
 import arbol.nario.listageneralizada.NodoNario;
 import java.util.Arrays;
@@ -142,6 +142,11 @@ public class ArbolBinarioListaLigada<E> {
         }
     }
 
+    /**
+     * Contar las hojas de un arbol
+     * @param r
+     * @return 
+     */
     public static int hojas(NodoBinario r) {
         int hh = 0;
         if (r != null) {
@@ -174,10 +179,11 @@ public class ArbolBinarioListaLigada<E> {
         return nh;
     }
 **/
-    
+    /**
+     * Recorrido por niveles
+     */
     public void recorrido1() {
         Queue<NodoBinario> queue = new LinkedList<>();
-        System.out.println("Comienzo recorrido1");
         if (raiz != null) {
             queue.add(raiz);
             NodoBinario a;
@@ -194,10 +200,11 @@ public class ArbolBinarioListaLigada<E> {
         }
     }
 
+    /**
+     * Reorre la rama derecha y se va delvolviendo por la izquierda
+     */
     public void recorrido2() {
         Stack<NodoBinario> stac = new Stack<>();
-
-        System.out.println("Comienzo recorrido2");
         if (raiz != null) {
             stac.add(raiz);
             NodoBinario a;

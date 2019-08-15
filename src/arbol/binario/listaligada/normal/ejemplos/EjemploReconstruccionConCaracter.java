@@ -20,10 +20,10 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.ejemplos;
+package arbol.binario.listaligada.normal.ejemplos;
 
-import arbol.binario.listaligada.ArbolBinarioListaLigada;
-import arbol.binario.listaligada.NodoBinario;
+import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
+import arbol.binario.listaligada.normal.NodoBinario;
 
 /**
  *

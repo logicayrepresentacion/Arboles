@@ -20,13 +20,13 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.busqueda.ejemplos.palabras;
+package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
 
 /**
  *
  * @author Alejandro
  */
-public class ContarPalabras1 {
+public class ContarPalabras {
 
     public static void main(String[] args) {
 
@@ -70,18 +70,20 @@ public class ContarPalabras1 {
                 + "¡un día en que ya nadie nos puede retener!";
         String[] cadenas = cadena.split(" ");
         
-        IndicePalabrasABB indice = new IndicePalabrasABB();
+        
+        
+        IndicePalabrasABB abb = new IndicePalabrasABB();
+        Palabra p = new Palabra("alejandro");
+        abb.insertar(p);
 
-    
-        for( String cad : cadenas){
-            indice.insertar(   new Palabra(cad));
-        }
-        long timea = System.currentTimeMillis();
-        System.out.println("Date " + timea);
-        indice.imprimirCantidades();
-        long timeb = System.currentTimeMillis();
-        System.out.println("Date " + timeb);
-        System.out.println("Tiempo " + (timeb - timea));
+        p = new Palabra("alejandro");
+        abb.insertar(p);
+        
+
+        p = new Palabra("alejandro");
+        abb.insertar(p);
+        
+        abb.imprimirCantidades();
         //abb.recorrido1();
         //abb.recorrido2();
     }

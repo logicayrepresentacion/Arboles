@@ -20,42 +20,44 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.ejemplos;
+package arbol.binario.listaligada.normal.ejemplos;
 
-import arbol.binario.listaligada.ArbolBinarioListaLigada;
-import arbol.binario.listaligada.NodoBinario;
+import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
+import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
 
 /**
  *
  * @author alejandroescobar
  */
-public class EjemploArbolBinarioContarHojasConCaracter {
+public class EjemploArbolBinarioConCaracter {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        NodoBinario a = new NodoBinario("a");
-        NodoBinario b = new NodoBinario("b");
-        NodoBinario c = new NodoBinario("c");
-        NodoBinario d = new NodoBinario("d");
-        NodoBinario e = new NodoBinario("e");
-        NodoBinario f = new NodoBinario("f");
-        NodoBinario g = new NodoBinario("g");
-        NodoBinario h = new NodoBinario("h");
-        NodoBinario i = new NodoBinario("i");
-        NodoBinario j = new NodoBinario("j");
-        NodoBinario k = new NodoBinario("k");
-        NodoBinario l = new NodoBinario("l");
-        NodoBinario m = new NodoBinario("m");
-        NodoBinario n = new NodoBinario("n");
-        NodoBinario o = new NodoBinario("o");
-        NodoBinario p = new NodoBinario("p");
+        NodoBinarioBusqueda a = new NodoBinarioBusqueda("a");
+        NodoBinarioBusqueda b = new NodoBinarioBusqueda("b");
+        NodoBinarioBusqueda c = new NodoBinarioBusqueda("c");
+        NodoBinarioBusqueda d = new NodoBinarioBusqueda("d");
+        NodoBinarioBusqueda e = new NodoBinarioBusqueda("e");
+        NodoBinarioBusqueda f = new NodoBinarioBusqueda("f");
+        NodoBinarioBusqueda g = new NodoBinarioBusqueda("g");
+        NodoBinarioBusqueda h = new NodoBinarioBusqueda("h");
+        NodoBinarioBusqueda i = new NodoBinarioBusqueda("i");
+        NodoBinarioBusqueda j = new NodoBinarioBusqueda("j");
+        NodoBinarioBusqueda k = new NodoBinarioBusqueda("k");
+        NodoBinarioBusqueda l = new NodoBinarioBusqueda("l");
+        NodoBinarioBusqueda m = new NodoBinarioBusqueda("m");
+        NodoBinarioBusqueda n = new NodoBinarioBusqueda("n");
+        NodoBinarioBusqueda o = new NodoBinarioBusqueda("o");
+        NodoBinarioBusqueda p = new NodoBinarioBusqueda("p");
+        NodoBinarioBusqueda r = new NodoBinarioBusqueda("r");
         
         h.setLd(i);
         e.setLi(g);
         e.setLd(h);
         c.setLi(e);
+        c.setLd(r);
         b.setLi(c);
         b.setLd(d);
         d.setLi(f);
@@ -68,14 +70,11 @@ public class EjemploArbolBinarioContarHojasConCaracter {
         m.setLd(o);
         o.setLd(p);
         
+        
         ArbolBinarioListaLigada.inorden(a);
         System.out.println("");
         ArbolBinarioListaLigada.preorden(a);
         System.out.println("");
-
-        ArbolBinarioListaLigada miArbol = new ArbolBinarioListaLigada(a);
-        int cantidadHojas = miArbol.contarHojas();
-        System.out.println("Cantidad de hojas " + cantidadHojas);
         
     }
     
