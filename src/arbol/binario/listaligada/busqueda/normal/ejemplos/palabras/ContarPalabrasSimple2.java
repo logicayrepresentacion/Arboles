@@ -31,7 +31,7 @@ import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
  */
 public class ContarPalabrasSimple2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
 

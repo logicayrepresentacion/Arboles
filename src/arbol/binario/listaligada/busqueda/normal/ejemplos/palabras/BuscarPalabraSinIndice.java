@@ -22,11 +22,13 @@
  */
 package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
 
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+
 /**
  *
  * @author Alejandro
  */
-public class ContarPalabras1 {
+public class BuscarPalabraSinIndice {
 
     public static void main(String[] args) throws Exception {
 
@@ -70,21 +72,25 @@ public class ContarPalabras1 {
                 + "¡un día en que ya nadie nos puede retener!";
         String[] cadenas = cadena.split(" ");
         
-        IndicePalabrasABB indice = new IndicePalabrasABB();
+        ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
 
     
         /**
          * Insertar en el arbol todas las palabras
          */
         for( String cad : cadenas){
-            indice.insertar(   new Palabra(cad));
+            abb.insertar( cad );
         }
+        
+        // Hasta acá se creo el arbol
         
         long timea = System.currentTimeMillis();
         System.out.println("Date " + timea);
         
         
-        indice.imprimirCantidades();
+        
+        
+        System.out.println(" " + abb.buscar( "puede" ).getDato() );
         
         long timeb = System.currentTimeMillis();
         System.out.println("Date " + timeb);

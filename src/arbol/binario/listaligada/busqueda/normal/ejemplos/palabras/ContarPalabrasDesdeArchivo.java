@@ -28,7 +28,7 @@ package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
  */
 public class ContarPalabrasDesdeArchivo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         String cadena = "El hombre es una cosa vana, variable y ondeante...\n"
                 + "\n"

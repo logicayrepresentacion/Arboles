@@ -36,7 +36,7 @@ class IndicePalabrasABB extends ArbolBinarioBusqueda {
 
     public void imprimirCantidades() {
         Queue<NodoBinarioBusqueda> queue = new LinkedList<>();
-        System.out.println("Comienzo recorrido1");
+        System.out.println("Comienzo recorrido con uso de la cola");
         NodoBinarioBusqueda raizlocal = (NodoBinarioBusqueda) getRaiz();
         if (raizlocal != null) {
             queue.add(raizlocal);
@@ -56,7 +56,7 @@ class IndicePalabrasABB extends ArbolBinarioBusqueda {
     }
 
     @Override
-    public NodoBinarioBusqueda insertar(Comparable dato) {
+    public NodoBinarioBusqueda insertar(Comparable dato) throws Exception {
         NodoBinarioBusqueda i = super.insertar(dato);
         if (i != null) {
             Palabra p = (Palabra) (i.getDato());

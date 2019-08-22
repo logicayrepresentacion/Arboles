@@ -48,7 +48,7 @@ public class ArbolBinarioListaLigada<E> {
         this.raiz = raiz;
     }
 
-    public NodoBinario getRaiz() {
+    public NodoBinario<E> getRaiz() {
         return raiz;
     }
 
@@ -59,8 +59,8 @@ public class ArbolBinarioListaLigada<E> {
      * @return Nodo raiz del arbol
      * @throws java.lang.Exception
      */
-    public static NodoBinario construyeArbolCadenaPREyIN(Character[] preorden, Character[] inorden) throws Exception {
-        NodoBinario r = reconstuir(preorden, inorden);
+    public static NodoBinario<E> construyeArbolCadenaPREyIN(Character[] preorden, Character[] inorden) throws Exception {
+        NodoBinario<E> r = reconstuir(preorden, inorden);
         return r;
     }
 

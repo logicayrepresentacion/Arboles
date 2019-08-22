@@ -26,7 +26,7 @@ package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
  *
  * @author Alejandro
  */
-public class ContarPalabras1 {
+public class BuscarPalabra {
 
     public static void main(String[] args) throws Exception {
 
@@ -80,11 +80,15 @@ public class ContarPalabras1 {
             indice.insertar(   new Palabra(cad));
         }
         
+        // Hasta acá se creo el arbol
+        
         long timea = System.currentTimeMillis();
         System.out.println("Date " + timea);
         
         
-        indice.imprimirCantidades();
+        Palabra p = (Palabra) indice.buscar( new Palabra("puede")).getDato();
+        
+        System.out.println(" " + p );
         
         long timeb = System.currentTimeMillis();
         System.out.println("Date " + timeb);

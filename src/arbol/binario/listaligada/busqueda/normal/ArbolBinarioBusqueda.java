@@ -37,51 +37,63 @@ public class ArbolBinarioBusqueda extends ArbolBinarioListaLigada {
     public ArbolBinarioBusqueda() {
         super(null);
     }
-    
-    
 
     /**
      * Inserta datos en el arbol
      *
      * @param dato
      * @return
+     * @throws java.lang.Exception
      */
-    public NodoBinarioBusqueda insertar(Comparable dato) {
+    public NodoBinarioBusqueda insertar(Comparable dato) throws Exception {
+        return insertar(new NodoBinarioBusqueda(dato));
+
+    }
+
+    /**
+     * Inserta datos en el arbol
+     *
+     * @param nodoDato
+     * @return
+     * @throws java.lang.Exception
+     */
+    public NodoBinarioBusqueda insertar(NodoBinarioBusqueda nodoDato) throws Exception {
         if (raiz == null) {
-            raiz = new NodoBinarioBusqueda(dato);
+            raiz = nodoDato;
             return (NodoBinarioBusqueda) raiz;
         } else {
+            Comparable dato = nodoDato.getDato();
             NodoBinarioBusqueda aux = (NodoBinarioBusqueda) raiz;
             while (aux != null) {
 
                 if (aux.getDato().compareTo(dato) == 0) {
                     return aux;
-                } else if (    dato.compareTo( aux.getDato() ) < 0) {
+                } else if (dato.compareTo(aux.getDato()) < 0) {
                     if (aux.getLi() != null) {
                         aux = (NodoBinarioBusqueda) aux.getLi();
                     } else {  // Se debe insertar
-                        NodoBinarioBusqueda newnodo = new NodoBinarioBusqueda(dato);
-                        aux.setLi(newnodo);
-                        return newnodo;
+                        aux.setLi(nodoDato);
+                        return nodoDato;
                     }
                 } else {
                     if (aux.getLd() != null) {
                         aux = (NodoBinarioBusqueda) aux.getLd();
                     } else {  // Se debe insertar
-                        NodoBinarioBusqueda newnodo = new NodoBinarioBusqueda(dato);
-                        aux.setLd(newnodo);
-                        return newnodo;
+                        aux.setLd(nodoDato);
+                        return nodoDato;
                     }
                 }
             }
         }
-        return null;
+        throw new Exception(" Falla en el recorrido para la inserción");
     }
 
     /**
-     * Este metodo retorna el nodo si el dato se encuentra o null de lo contrario
+     * Este metodo retorna el nodo si el dato se encuentra o null de lo
+     * contrario
+     *
      * @param dato
-     * @return 
+     * @return
      */
     public NodoBinarioBusqueda buscar(Comparable dato) {
         NodoBinarioBusqueda aux = (NodoBinarioBusqueda) raiz;
@@ -89,7 +101,7 @@ public class ArbolBinarioBusqueda extends ArbolBinarioListaLigada {
 
             if (aux.getDato().compareTo(dato) == 0) {
                 return aux;
-            } else if (dato.compareTo(   aux.getDato()  ) < 0) {
+            } else if (dato.compareTo(aux.getDato()) < 0) {
                 if (aux.getLi() != null) {
                     aux = (NodoBinarioBusqueda) aux.getLi();
                 } else {
