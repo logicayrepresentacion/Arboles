@@ -60,7 +60,7 @@ public class ArbolBinarioBusqueda extends ArbolBinarioListaLigada {
     public NodoBinarioBusqueda insertar(NodoBinarioBusqueda nodoDato) throws Exception {
         if (raiz == null) {
             raiz = nodoDato;
-            return (NodoBinarioBusqueda) raiz;
+            return  (NodoBinarioBusqueda) raiz;
         } else {
             Comparable dato = nodoDato.getDato();
             NodoBinarioBusqueda aux = (NodoBinarioBusqueda) raiz;

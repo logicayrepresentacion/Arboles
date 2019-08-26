@@ -22,7 +22,6 @@
  */
 package arbol.binario.listaligada.busqueda.normal.ejemplos.varios;
 
-import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
 import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
 
 /**
@@ -31,7 +30,7 @@ import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
  */
 public class EjemploInsertar {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
         abb.insertar('a');

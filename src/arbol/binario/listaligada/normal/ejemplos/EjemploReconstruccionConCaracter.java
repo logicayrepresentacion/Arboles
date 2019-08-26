@@ -48,7 +48,7 @@ public class EjemploReconstruccionConCaracter {
         Character[] preordenCH = convertirChar2Character( preorden );
         
         ArbolBinarioListaLigada abll = new ArbolBinarioListaLigada();
-        NodoBinario raiz = ArbolBinarioListaLigada.construyeArbolCadenaPREyIN( preordenCH, inordenCH);
+        NodoBinario raiz = abll.construyeArbolCadenaPREyIN( preordenCH, inordenCH);
         
         abll.setRaiz(raiz);
         ArbolBinarioListaLigada.inorden(raiz);

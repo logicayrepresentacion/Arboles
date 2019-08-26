@@ -30,11 +30,11 @@ import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
  */
 public class EjemploBuscar {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
         
-        String miCadena = " Defi nición\n"
+        String miCadena = " Definición\n"
                 + "Un tipo abstracto de datos (TAD) se defi ne como un conjunto de dominios D, un dominio d\n"
                 + "designado de D, un conjunto de funciones F y un conjunto de axiomas.\n"
                 + "Las funciones defi nen las operaciones que se pueden efectuar con los objetos de la\n"

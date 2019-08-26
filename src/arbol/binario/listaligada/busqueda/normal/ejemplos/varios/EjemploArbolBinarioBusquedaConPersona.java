@@ -64,12 +64,15 @@ public class EjemploArbolBinarioBusquedaConPersona {
         raiz.setLi(b);
 
         raiz.setLd(c);
+                
+        
         NodoBinarioBusqueda d = new NodoBinarioBusqueda(5655);
         NodoBinarioBusqueda e = new NodoBinarioBusqueda(45654);
 
         b.setLi(d);
 
         b.setLd(e);
+        
         ArbolBinarioListaLigada ab = new ArbolBinarioListaLigada();
 
         ab.setRaiz(raiz);

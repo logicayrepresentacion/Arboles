@@ -20,37 +20,57 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.busqueda.normal.ejemplos.recorridos;
+package arbol.binario.listaligada.busqueda.normal.ejemplos.indicepalabras;
 
-import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
 import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
 
-/**
- *
- * @author Alejandro
- */
-public class EjemploRecorridos1y2 {
+public class Palabra implements Comparable<Palabra> {
 
-    public static void main(String[] args) throws Exception {
+    private String cadena;
+    private int contador = 0;
+    private final ArbolBinarioBusqueda abb;
 
-        ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
-        abb.insertar('a');
-        abb.insertar('b');
-        abb.insertar('d');
-        abb.insertar('f');
-        abb.insertar('c');
-        abb.insertar('e');
-        abb.recorrido1();
-        System.out.println("");
-        abb.recorrido2();
-        System.out.println("");
-        ArbolBinarioListaLigada.inorden(abb.getRaiz());
-        System.out.println("");
-        if (abb.buscar('f') == null) {
-            System.out.println("No esta");
-
-        } else {
-            System.out.println("Si esta");
-        }
+    public Palabra(String palabra) {
+        this.cadena = palabra;
+        abb = new ArbolBinarioBusqueda();
     }
+
+    public String getPalabra() {
+        return cadena;
+    }
+
+    public void setPalabra(String palabra) {
+        this.cadena = palabra;
+    }
+
+    public int getContador() {
+        return contador;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+
+    public void aumentar() {
+        this.contador++;
+    }
+    
+    public void insertarPosicion( int p ) throws Exception{
+        abb.insertar(p);
+    }
+
+
+    @Override
+    public String toString() {
+        ArbolBinarioBusqueda.inorden( abb.getRaiz() );
+        return  cadena + ":" + contador + " ";
+    }
+
+    @Override
+    public int compareTo(Palabra o) {
+        Palabra t = (Palabra) o;
+        String pb = t.getPalabra();
+        return cadena.compareToIgnoreCase(pb);
+    }
+
 }
