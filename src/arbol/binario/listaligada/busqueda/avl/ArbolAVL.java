@@ -86,7 +86,7 @@ public class ArbolAVL {
         }
 
         /**
-         * Calcular el nuevo factor de balance
+         * Calcular los  nuevos factores de balance
          */
         if (n.getDato().compareTo(pivote.getDato()) > 0) {
             pivote.setfB(pivote.getfB() - 1);
@@ -128,6 +128,9 @@ public class ArbolAVL {
             }
         }
 
+        /**
+         * Consecuencias de rebalancear
+         */
         if (padrePivote == null) {
             root = q;
             return n;
