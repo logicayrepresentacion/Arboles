@@ -81,7 +81,7 @@ public class ArbolAVL {
          */
         if (n.getDato().compareTo(padreX.getDato()) > 0) {
             padreX.setLd(n);
-        } else if (n.getDato().compareTo(padreX) < 0) {
+        } else if (n.getDato().compareTo(padreX.getDato()) < 0) {
             padreX.setLi(n);
         }
 
@@ -237,6 +237,11 @@ public class ArbolAVL {
         r.setfB(0);
     }
 
+    /**
+     * 
+     * @param dato
+     * @return 
+     */
     public NodoAVL buscar(Comparable dato) {
         NodoAVL aux = root;
         while (aux != null) {
