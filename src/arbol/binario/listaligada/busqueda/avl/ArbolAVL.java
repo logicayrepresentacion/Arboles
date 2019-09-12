@@ -116,31 +116,18 @@ public class ArbolAVL {
 
         if (pivote.getfB() == +2) {
             if (q.getfB() == +1) {
-                rotacionDerecha(pivote, q);
+                rotacionDerecha(padrePivote, pivote, q);
             } else {
-                dobleRotacionDerecha(pivote, q);
+                dobleRotacionDerecha(padrePivote, pivote, q);
             }
         } else if (pivote.getfB() == -2) {
             if (q.getfB() == -1) {
-                rotacionIzquierda(pivote, q);
+                rotacionIzquierda(padrePivote, pivote, q);
             } else {
-                dobleRotacionIzquierda(pivote, q);
+                dobleRotacionIzquierda(padrePivote, pivote, q);
             }
         }
-
-        /**
-         * Consecuencias de rebalancear
-         */
-        if (padrePivote == null) {
-            root = q;
-            return n;
-        }
-
-        if (padrePivote.getLi() == pivote) {
-            padrePivote.setLi(q);
-        } else {
-            padrePivote.setLd(q);
-        }
+        
         return n;
     }
 
@@ -149,14 +136,25 @@ public class ArbolAVL {
      * p.asignaLi(q.retornaLd()) 3. q.asignaLd(p) 4. p.asignaFb(0) 5.
      * q.asignaFb(0) 6. fin(unaRotacionALaDerecha)
      *
+     * @param padrePivote
      * @param pivote
      * @param q
      */
-    private void rotacionDerecha(NodoAVL p, NodoAVL q) {
+    private void rotacionDerecha(NodoAVL padrePivote, NodoAVL p, NodoAVL q) {
         p.setLi(q.getLd());
         q.setLd(p);
         p.setfB(0);
         q.setfB(0);
+        
+        if (padrePivote == null) {
+            root = q;
+        } else {
+            if (padrePivote.getLi() != null && padrePivote.getLi() == p) {
+               padrePivote.setLi(q);
+            } else {
+               padrePivote.setLd(q);
+            }   
+        }
     }
 
     /**
@@ -167,15 +165,29 @@ public class ArbolAVL {
      * q.asignaFb(0) 13. break 14. –1: p.asignaFb(0) 15. q.asignaFb(1) 16.
      * fin(casos) 17. r.asignaFb(0) 18. q = r 19. fin(dobleRotacionALaDerecha)
      *
+     * @param padrePivote
      * @param pivote
      * @param q
      */
-    private void dobleRotacionDerecha(NodoAVL p, NodoAVL q) {
+    private void dobleRotacionDerecha(NodoAVL padrePivote, NodoAVL p, NodoAVL q) {
         NodoAVL r = (NodoAVL) q.getLd();
+        
         q.setLd(r.getLi());
         r.setLi(q);
+        
         p.setLi(r.getLd());
         r.setLd(p);
+        
+        if (padrePivote == null) {
+            root = r;
+        } else {
+            if (padrePivote.getLi() != null && padrePivote.getLi() == p) {
+                padrePivote.setLi(r);
+            } else {
+                padrePivote.setLd(r);
+            }
+        }
+        
         switch (r.getfB()) {
             case 0:
                 p.setfB(0);
@@ -198,28 +210,51 @@ public class ArbolAVL {
      * p.asignaLd(q.retornaLi()) 3. q.asignaLi(p) 4. p.asignaFb(0) 5.
      * q.asignaFb(0) 6. fin(unaRotacionALaIzquierda)
      *
+     * @param padrePivote
      * @param pivote
      * @param q
      */
-    private void rotacionIzquierda(NodoAVL p, NodoAVL q) {
+    private void rotacionIzquierda(NodoAVL padrePivote, NodoAVL p, NodoAVL q) {
         p.setLd(q.getLi());
         q.setLi(p);
         p.setfB(0);
         q.setfB(0);
+        
+        if (padrePivote == null) {
+            root = q;
+        } else {
+            if (padrePivote.getLi() != null && padrePivote.getLi() == p) {
+                padrePivote.setLi(q);
+            } else {
+                padrePivote.setLd(q);
+            }
+        }
     }
 
     /**
-     *
+     * 
+     * @param padrePivote
      * @param p
      * @param q
      */
-    private void dobleRotacionIzquierda(NodoAVL p, NodoAVL q) {
+    private void dobleRotacionIzquierda(NodoAVL padrePivote, NodoAVL p, NodoAVL q) {
         NodoAVL r = (NodoAVL) q.getLi();
         q.setLi(r.getLd());
         r.setLd(q);
-
+        
         p.setLd(r.getLi());
         r.setLi(p);
+        
+        if (padrePivote == null) {
+            root = r;
+        } else {
+            if (padrePivote.getLi() != null && padrePivote.getLi() == p) {
+                padrePivote.setLi(r);
+            } else {
+                padrePivote.setLd(r);
+            }
+        }
+        
         switch (r.getfB()) {
             case 0:
                 p.setfB(0);
@@ -269,6 +304,4 @@ public class ArbolAVL {
         return root;
     }
     
-    
-
 }
