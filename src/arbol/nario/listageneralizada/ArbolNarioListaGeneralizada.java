@@ -36,56 +36,55 @@ public class ArbolNarioListaGeneralizada {
     final static boolean TRANSFORMAR = true;
     final static boolean NOTRANSFORMAR = false;
 
-    
     public ArbolNarioListaGeneralizada(String h) {
-        char[] c = h.toCharArray();
-        int lc = c.length;
+        char[] cadena = h.toCharArray();
+        int longitudCadena = cadena.length;
 
-        if (c[0] != '(') {
+        if (cadena[0] != '(') {
             System.err.println("La cadena no inicia correctamente");
             System.exit(-1);
         }
-        if (c[lc - 1] != ')') {
+        if (cadena[longitudCadena - 1] != ')') {
             System.err.println("La cadena no finaliza correctamente");
             System.exit(-1);
         }
 
         // Minimo debe ser (a)
-        if (lc < 3) {
+        if (longitudCadena < 3) {
             System.err.println("La cadena es muy corta");
             System.exit(-1);
         }
 
         Stack migas = new Stack();
-        NodoNario u;
-        NodoNario pr, nx;
-        pr = new NodoNario(c[1]);
-        u = pr;
-        raiz = pr;
+        NodoNario ultimo;
+        NodoNario primero, nodoX;
+        primero = new NodoNario(cadena[1]);
+        ultimo = primero;
+        raiz = primero;
         int i = 3;
-        int np = lc - 2;
-        while (i < np) {
-            nx = new NodoNario(null);
-            u.setLiga(nx);
-            u = nx;
-            if (c[i + 1] == '(') {
-                u.setSw(1);
-                migas.add(u);
-                nx = new NodoNario(c[i]);
-                u.setDato(nx);
-                u = nx;
+        int caracterParada = longitudCadena - 2;
+        while (i < caracterParada) {
+            nodoX = new NodoNario(null);
+            ultimo.setLiga(nodoX);
+            ultimo = nodoX;
+            if (cadena[i + 1] == '(') {
+                ultimo.setSw(1);
+                migas.add(ultimo);
+                nodoX = new NodoNario(cadena[i]);
+                ultimo.setDato(nodoX);
+                ultimo = nodoX;
                 i = i + 2;
             } else {
-                u.setDato(c[i]);
-                if (c[i + 1] == ',') {
+                ultimo.setDato(cadena[i]);
+                if (cadena[i + 1] == ',') {
                     i = i + 2;
                 } else {
                     i = i + 1;
-                    while (i < np && c[i] == ')') {
-                        u = (NodoNario) migas.pop();
+                    while (i < caracterParada && cadena[i] == ')') {
+                        ultimo = (NodoNario) migas.pop();
                         i = i + 1;
                     }
-                    if (c[i] == ',') {
+                    if (cadena[i] == ',') {
                         i = i + 1;
                     }
                 }
@@ -178,27 +177,27 @@ public class ArbolNarioListaGeneralizada {
 
     void mostrarHilera() {
         Stack<NodoNario> migas = new Stack();
-        NodoNario u = raiz;
+        NodoNario ultimo = raiz;
         System.out.print("(");
-        while (u != null) {
-            if (u.getSw() == 0) {
-                System.out.print(u.getDato());
-                if (u.getLiga() != null) {
-                    u = u.getLiga();
-
+        while (ultimo != null) {
+            if (ultimo.getSw() == 0) {
+                System.out.print(ultimo.getDato());
+                if (ultimo.getLiga() != null) {
+                    ultimo = ultimo.getLiga();
                 } else {
                     if (!migas.empty()) {
-                        u = migas.pop();
+                        ultimo = migas.pop();
                         System.out.print(")");
                     } else {
-                        u = u.getLiga();
+                        ultimo = ultimo.getLiga();
                     }
                 }
             } else {
-                if (u.getLiga() != null) {
-                    migas.add(u.getLiga());
+                if (ultimo.getLiga() != null) {
+                    migas.add(ultimo.getLiga());
                 }
-                u = (NodoNario) u.getDato();
+                System.out.print("(");
+                ultimo = (NodoNario) ultimo.getDato();
             }
         }
 
@@ -374,9 +373,9 @@ public class ArbolNarioListaGeneralizada {
         if ((char) raiz.getDato() == (char) dato) {
             System.out.println("Es la raíz no tiene linea pura");
         }
-        
+
         ancestros.push(raiz);
-        
+
         // Recorrido con busqueda
         NodoNario r = raiz.getLiga();
         while (r != null) {
