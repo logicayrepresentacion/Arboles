@@ -266,20 +266,20 @@ public class ArbolNarioListaGeneralizada {
     }
 
     public void insertarNuevoHijo(char ob, char dato) {
-        NodoNario r = raiz;
+        NodoNario recorrido = raiz;
         Queue<NodoNario> miga = new LinkedList<>();
-        while (r != null) {
-            if (r.getSw() == 0) {
-                if ((char) r.getDato() == ob) {
-                    if (r == raiz) {
-                        insertarHijo(r, dato, NOTRANSFORMAR);
+        while (recorrido != null) {
+            if (recorrido.getSw() == 0) {
+                if ((char) recorrido.getDato() == ob) {
+                    if (recorrido == raiz) {
+                        insertarHijo(recorrido, dato, NOTRANSFORMAR);
                     } else {
-                        insertarHijo(r, dato, TRANSFORMAR);
+                        insertarHijo(recorrido, dato, TRANSFORMAR);
                     }
                     break;
                 }
             } else {
-                NodoNario nreal = (NodoNario) r.getDato();
+                NodoNario nreal = (NodoNario) recorrido.getDato();
                 if ((char) nreal.getDato() == ob) {
                     insertarHijo(nreal, dato, NOTRANSFORMAR);
                     break;
@@ -287,9 +287,9 @@ public class ArbolNarioListaGeneralizada {
                     miga.add(nreal.getLiga());
                 }
             }
-            r = r.getLiga();
-            if (r == null && !miga.isEmpty()) {
-                r = miga.remove();
+            recorrido = recorrido.getLiga();
+            if (recorrido == null && !miga.isEmpty()) {
+                recorrido = miga.remove();
             }
         }
     }
