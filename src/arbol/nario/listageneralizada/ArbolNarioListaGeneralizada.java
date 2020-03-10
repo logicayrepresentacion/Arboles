@@ -222,29 +222,38 @@ public class ArbolNarioListaGeneralizada {
         }
     }
 
-    public void imprimirHijosNodo(char d) {
-        NodoNario r = raiz;
+    public void imprimirHijosNodo(char d) throws Exception {
+        NodoNario recorrido = raiz;
         Queue<NodoNario> cola = new LinkedList<>();
-        while (r != null) {
-            if (r.getSw() == 1) {
-                NodoNario realHijo = (NodoNario) r.getDato();
+
+        // Esta parte es solo para raíz por que no tengo forma de identificar si es un padre o no
+        if ((char) recorrido.getDato() == d) {
+            System.out.println(getHijos(recorrido, Integer.SIZE));
+            return;
+        }
+
+        while (recorrido != null) {
+            if (recorrido.getSw() == 1) {
+                NodoNario realHijo = (NodoNario) recorrido.getDato();
                 if ((char) realHijo.getDato() == d) {
                     System.out.println(getHijos(realHijo, Integer.SIZE));
-                    break;
+                    return;
                 } else {
                     cola.add(realHijo.getLiga());
                 }
             } else {
-                if ((char) r.getDato() == d) {
+                if ((char) recorrido.getDato() == d) {
                     System.out.println("No tiene hijos, es una hoja");
-                    break;
+                    return;
                 }
             }
-            r = r.getLiga();
-            if (r == null && !cola.isEmpty()) {
-                r = cola.remove();
+            recorrido = recorrido.getLiga();
+            if (recorrido == null && !cola.isEmpty()) {
+                recorrido = cola.remove();
             }
         }
+        throw new Exception("El registro " + d + " no se encuentra en el arbol");
+
     }
 
     private String getHijos(NodoNario subraiz, Integer ch) {
@@ -307,7 +316,7 @@ public class ArbolNarioListaGeneralizada {
         }
     }
 
-    public int determinarGrado(char x) {
+    public int determinarGrado(char x) throws Exception {
 
         Stack migas = new Stack();
         int contar = 0;
@@ -315,10 +324,10 @@ public class ArbolNarioListaGeneralizada {
 
         // Esta parte es solo para raíz por que no tengo forma de identificar si es un padre o no
         if ((char) recorrido.getDato() == x) {
-            NodoNario ph = recorrido.getLiga();
-            while (ph != null) {
+            NodoNario primero = recorrido.getLiga();
+            while (primero != null) {
                 contar++;
-                ph = ph.getLiga();
+                primero = primero.getLiga();
             }
             return contar;
         }
@@ -337,10 +346,10 @@ public class ArbolNarioListaGeneralizada {
                 recorrido = (NodoNario) recorrido.getDato();
                 // Evaluo si el nodo que es un padre es el que busco
                 if ((char) recorrido.getDato() == x) {
-                    NodoNario ph = recorrido.getLiga();
-                    while (ph != null) {
+                    NodoNario primeroSublista = recorrido.getLiga();
+                    while (primeroSublista != null) {
                         contar++;
-                        ph = ph.getLiga();
+                        primeroSublista = primeroSublista.getLiga();
                     }
                     return contar;
                 } else {
@@ -351,7 +360,7 @@ public class ArbolNarioListaGeneralizada {
                 recorrido = (NodoNario) migas.pop();
             }
         }
-        return contar;
+        throw new Exception("El registro " + x + " no se encuentra en el arbol");
     }
 
     /**

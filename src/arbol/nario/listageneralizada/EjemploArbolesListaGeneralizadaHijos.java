@@ -26,7 +26,7 @@ package arbol.nario.listageneralizada;
  *
  * @author alejandroescobar
  */
-public class EjemploArbolesListaGeneralizadaGrado {
+public class EjemploArbolesListaGeneralizadaHijos {
 
     /**
      * @param args the command line arguments
@@ -35,19 +35,22 @@ public class EjemploArbolesListaGeneralizadaGrado {
         String hilera = "(a(b(c,d(e)),f,g(h,i(j,k(l)),m,n)))";
         ArbolNarioListaGeneralizada arbolLG = new ArbolNarioListaGeneralizada(hilera);
         try {
-            System.out.println(" El grado de 'a' es " + arbolLG.determinarGrado('a'));
+            System.out.println(" Los hijos de 'a' son:");
+            arbolLG.imprimirHijosNodo('a');
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            System.out.println(" El grado de 'i' es " + arbolLG.determinarGrado('i'));
+            System.out.println(" Los hijos de 'f' son:");
+            arbolLG.imprimirHijosNodo('f');
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            System.out.println(" El grado de 'q' es " + arbolLG.determinarGrado('q'));
+            System.out.println(" Los hijos de 'q' son:");
+            arbolLG.imprimirHijosNodo('q');
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
