@@ -23,7 +23,7 @@
 package arbol.binario.listaligada.normal.ejemplos;
 
 import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
-import arbol.binario.listaligada.normal.NodoBinario;
+import arbol.binario.listaligada.normal.NodoBinarioGenerico;
 
 /**
  *
@@ -48,7 +48,7 @@ public class EjemploReconstruccionConCaracter {
         Character[] preordenCH = convertirChar2Character( preorden );
         
         ArbolBinarioListaLigada abll = new ArbolBinarioListaLigada();
-        NodoBinario raiz = abll.construyeArbolCadenaPREyIN( preordenCH, inordenCH);
+        NodoBinarioGenerico raiz = abll.construyeArbolCadenaPREyIN( preordenCH, inordenCH);
         
         abll.setRaiz(raiz);
         ArbolBinarioListaLigada.inorden(raiz);

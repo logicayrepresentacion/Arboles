@@ -35,20 +35,20 @@ import java.util.Stack;
  */
 public class ArbolBinarioListaLigada<E> {
 
-    protected NodoBinario raiz;
+    protected NodoBinarioGenerico raiz;
 
     public ArbolBinarioListaLigada() {
     }
 
-    public ArbolBinarioListaLigada(NodoBinario<E> raiz) {
+    public ArbolBinarioListaLigada(NodoBinarioGenerico<E> raiz) {
         this.setRaiz(raiz);
     }
 
-    public void setRaiz(NodoBinario<E> raiz) {
+    public void setRaiz(NodoBinarioGenerico<E> raiz) {
         this.raiz = raiz;
     }
 
-    public NodoBinario<E> getRaiz() {
+    public NodoBinarioGenerico<E> getRaiz() {
         return raiz;
     }
 
@@ -59,8 +59,8 @@ public class ArbolBinarioListaLigada<E> {
      * @return Nodo raiz del arbol
      * @throws java.lang.Exception
      */
-    public NodoBinario<E> construyeArbolCadenaPREyIN(Character[] preorden, Character[] inorden) throws Exception {
-        NodoBinario<E> r = reconstuir(preorden, inorden);
+    public NodoBinarioGenerico<E> construyeArbolCadenaPREyIN(Character[] preorden, Character[] inorden) throws Exception {
+        NodoBinarioGenerico<E> r = reconstuir(preorden, inorden);
         return r;
     }
 
@@ -72,13 +72,13 @@ public class ArbolBinarioListaLigada<E> {
      * @param inorden
      * @return
      */
-    private static NodoBinario reconstuir(Character[] preorden, Character[] inorden) throws Exception {
+    private static NodoBinarioGenerico reconstuir(Character[] preorden, Character[] inorden) throws Exception {
         /**
          * Se extrae el dato con la raiz de esta ejecución y se crea el nodo con
          * ese caracter
          */
         char dr = preorden[0];
-        NodoBinario r = new NodoBinario(dr);
+        NodoBinarioGenerico r = new NodoBinarioGenerico(dr);
 
         /**
          * Evalua la parte más izquierda
@@ -134,7 +134,7 @@ public class ArbolBinarioListaLigada<E> {
         throw new Exception("Sin codigo");
     }
 
-    public static void inorden(NodoBinario r) {
+    public static void inorden(NodoBinarioGenerico r) {
         if (r != null) {
             inorden(r.getLi());
             System.out.print(r.getDato());
@@ -147,7 +147,7 @@ public class ArbolBinarioListaLigada<E> {
      * @param r
      * @return 
      */
-    public static int hojas(NodoBinario r) {
+    public static int hojas(NodoBinarioGenerico r) {
         int hh = 0;
         if (r != null) {
             if (r.getLi() == null && r.getLd() == null) {
@@ -183,10 +183,10 @@ public class ArbolBinarioListaLigada<E> {
      * Recorrido por niveles
      */
     public void recorrido1() {
-        Queue<NodoBinario> queue = new LinkedList<>();
+        Queue<NodoBinarioGenerico> queue = new LinkedList<>();
         if (raiz != null) {
             queue.add(raiz);
-            NodoBinario a;
+            NodoBinarioGenerico a;
             while (!queue.isEmpty()) {
                 a = queue.poll();
                 System.out.print(a.getDato() + ",");
@@ -204,10 +204,10 @@ public class ArbolBinarioListaLigada<E> {
      * Reorre la rama derecha y se va delvolviendo por la izquierda
      */
     public void recorrido2() {
-        Stack<NodoBinario> stac = new Stack<>();
+        Stack<NodoBinarioGenerico> stac = new Stack<>();
         if (raiz != null) {
             stac.add(raiz);
-            NodoBinario a;
+            NodoBinarioGenerico a;
             while (!stac.isEmpty()) {
                 a = stac.pop();
                 System.out.print(a.getDato() + ",");
@@ -221,8 +221,8 @@ public class ArbolBinarioListaLigada<E> {
         }
     }
 
-    public static void inordenNR(NodoBinario r) {
-        Stack<NodoBinario> migas = new Stack<>();
+    public static void inordenNR(NodoBinarioGenerico r) {
+        Stack<NodoBinarioGenerico> migas = new Stack<>();
         migas.add(r);
         r = r.getLi();
         while (!migas.isEmpty() || r != null) {
@@ -237,7 +237,7 @@ public class ArbolBinarioListaLigada<E> {
         }
     }
 
-    public static void preorden(NodoBinario r) {
+    public static void preorden(NodoBinarioGenerico r) {
         if (r != null) {
             System.out.print(r.getDato());
             preorden(r.getLi());
@@ -245,19 +245,19 @@ public class ArbolBinarioListaLigada<E> {
         }
     }
 
-    public static NodoBinario convertirArbolNario2ArbolBinario(NodoNario rlg) {
-        NodoBinario raizBinario = new NodoBinario(rlg.getDato());
+    public static NodoBinarioGenerico convertirArbolNario2ArbolBinario(NodoNario rlg) {
+        NodoBinarioGenerico raizBinario = new NodoBinarioGenerico(rlg.getDato());
         NodoNario p = rlg.getLiga();
         NodoNario q = null;
-        NodoBinario xBinario = raizBinario;
-        NodoBinario ultimoBinario = xBinario;
+        NodoBinarioGenerico xBinario = raizBinario;
+        NodoBinarioGenerico ultimoBinario = xBinario;
         Stack pila = new Stack();
         while (p != null) {
             if (p.getSw() == 0) {
-                xBinario = new NodoBinario(p.getDato());
+                xBinario = new NodoBinarioGenerico(p.getDato());
             } else {
                 q = ((NodoNario) p.getDato());
-                xBinario = new NodoBinario(q.getDato());
+                xBinario = new NodoBinarioGenerico(q.getDato());
                 pila.add(xBinario);
                 pila.add(q.getLiga());
             }
@@ -266,10 +266,10 @@ public class ArbolBinarioListaLigada<E> {
             p = p.getLiga(); // que tal si es p y no q?
             while (p != null) {
                 if (p.getSw() == 0) {
-                    xBinario = new NodoBinario(p.getDato());
+                    xBinario = new NodoBinarioGenerico(p.getDato());
                 } else {
                     q = ((NodoNario) p.getDato());
-                    xBinario = new NodoBinario(q.getDato());
+                    xBinario = new NodoBinarioGenerico(q.getDato());
                     pila.add(xBinario);
                     pila.add(q.getLiga());
                 }
@@ -279,7 +279,7 @@ public class ArbolBinarioListaLigada<E> {
             }
             if (!pila.isEmpty()) {
                 p = (NodoNario) pila.pop();
-                ultimoBinario = (NodoBinario) pila.pop();
+                ultimoBinario = (NodoBinarioGenerico) pila.pop();
             }
 
         }

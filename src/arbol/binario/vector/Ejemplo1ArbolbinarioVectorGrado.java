@@ -5,9 +5,6 @@
  */
 package arbol.binario.vector;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author 57300

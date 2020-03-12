@@ -20,27 +20,48 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.busqueda.normal;
-
-import arbol.binario.listaligada.normal.NodoBinarioGenerico;
+package arbol.binario.listaligada.normal;
 
 /**
  *
  * @author Alejandro
  * @param <T>
  */
-public class NodoBinarioBusqueda<T extends Comparable> extends NodoBinarioGenerico<T> {
+public class NodoBinarioGenerico<T> {
 
-    public NodoBinarioBusqueda(T dato) {
-        super(dato);
+    protected final T dato;
+    private NodoBinarioGenerico<T> li;
+    private NodoBinarioGenerico<T> ld;
+
+    public NodoBinarioGenerico(T dato) {
+        this.dato = dato;
     }
 
-    @Override
+
     public T getDato() {
         return dato;
     }
-    
-    
-    
-    
+
+    public NodoBinarioGenerico<T> getLi() {
+        return li;
+    }
+
+    public void setLi(NodoBinarioGenerico<T> li) {
+        this.li = li;
+    }
+
+    public NodoBinarioGenerico<T> getLd() {
+        return ld;
+    }
+
+    public void setLd(NodoBinarioGenerico<T> ld) {
+        this.ld = ld;
+    }
+
+
+    @Override
+    public String toString() {
+        return dato.toString();
+    }
+
 }

@@ -23,7 +23,7 @@
 package arbol.binario.listaligada.normal.ejemplos;
 
 import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
-import arbol.binario.listaligada.normal.NodoBinario;
+import arbol.binario.listaligada.normal.NodoBinarioGenerico;
 
 /**
  *
@@ -35,22 +35,22 @@ public class EjemploArbolBinarioContarHojasConCaracter {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        NodoBinario a = new NodoBinario("a");
-        NodoBinario b = new NodoBinario("b");
-        NodoBinario c = new NodoBinario("c");
-        NodoBinario d = new NodoBinario("d");
-        NodoBinario e = new NodoBinario("e");
-        NodoBinario f = new NodoBinario("f");
-        NodoBinario g = new NodoBinario("g");
-        NodoBinario h = new NodoBinario("h");
-        NodoBinario i = new NodoBinario("i");
-        NodoBinario j = new NodoBinario("j");
-        NodoBinario k = new NodoBinario("k");
-        NodoBinario l = new NodoBinario("l");
-        NodoBinario m = new NodoBinario("m");
-        NodoBinario n = new NodoBinario("n");
-        NodoBinario o = new NodoBinario("o");
-        NodoBinario p = new NodoBinario("p");
+        NodoBinarioGenerico a = new NodoBinarioGenerico("a");
+        NodoBinarioGenerico b = new NodoBinarioGenerico("b");
+        NodoBinarioGenerico c = new NodoBinarioGenerico("c");
+        NodoBinarioGenerico d = new NodoBinarioGenerico("d");
+        NodoBinarioGenerico e = new NodoBinarioGenerico("e");
+        NodoBinarioGenerico f = new NodoBinarioGenerico("f");
+        NodoBinarioGenerico g = new NodoBinarioGenerico("g");
+        NodoBinarioGenerico h = new NodoBinarioGenerico("h");
+        NodoBinarioGenerico i = new NodoBinarioGenerico("i");
+        NodoBinarioGenerico j = new NodoBinarioGenerico("j");
+        NodoBinarioGenerico k = new NodoBinarioGenerico("k");
+        NodoBinarioGenerico l = new NodoBinarioGenerico("l");
+        NodoBinarioGenerico m = new NodoBinarioGenerico("m");
+        NodoBinarioGenerico n = new NodoBinarioGenerico("n");
+        NodoBinarioGenerico o = new NodoBinarioGenerico("o");
+        NodoBinarioGenerico p = new NodoBinarioGenerico("p");
         
         h.setLd(i);
         e.setLi(g);
