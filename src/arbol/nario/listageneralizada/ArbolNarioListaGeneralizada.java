@@ -92,6 +92,7 @@ public class ArbolNarioListaGeneralizada {
         }
     }
 
+    /*
     public static ArbolNarioListaGeneralizada parseString(String cad) {
         Stack<NodoNario> stac = new Stack<>();
         NodoNario x = new NodoNario();
@@ -124,8 +125,7 @@ public class ArbolNarioListaGeneralizada {
         ArbolNarioListaGeneralizada anlg = new ArbolNarioListaGeneralizada(raiz);
 
         return anlg;
-    }
-
+    }*/
     private ArbolNarioListaGeneralizada(NodoNario raiz) {
         this.raiz = raiz;
     }
@@ -420,6 +420,10 @@ public class ArbolNarioListaGeneralizada {
             }
         }
 
+    }
+
+    public NodoNario getRaiz() {
+        return raiz;
     }
 
 }

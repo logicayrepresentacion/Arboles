@@ -29,7 +29,7 @@ import java.util.Stack;
  *
  * @author alejandroescobar
  */
-public final class ArbolBinarioListaLigadaChar {
+public class ArbolBinarioListaLigadaChar {
 
     protected NodoBinarioChar raiz;
 
