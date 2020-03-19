@@ -24,7 +24,7 @@ package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
 
 
 import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
-import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -32,7 +32,7 @@ import java.util.Queue;
  *
  * @author alejandroescobar
  */
-class IndicePalabrasABB extends ArbolBinarioBusqueda {
+class IndicePalabrasABB extends ArbolBinarioBusquedaGenerico {
 
     public void imprimirCantidades() {
         Queue<NodoBinarioBusqueda> queue = new LinkedList<>();

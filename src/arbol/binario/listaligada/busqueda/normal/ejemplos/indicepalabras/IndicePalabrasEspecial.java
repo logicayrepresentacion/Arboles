@@ -5,14 +5,14 @@
  */
 package arbol.binario.listaligada.busqueda.normal.ejemplos.indicepalabras;
 
-import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
 import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
 
 /**
  *
  * @author Usuario
  */
-public class IndicePalabrasEspecial extends ArbolBinarioBusqueda {
+public class IndicePalabrasEspecial extends ArbolBinarioBusquedaGenerico {
 
     public NodoBinarioBusqueda insertar(Palabra dato, int pos) throws Exception {
         NodoBinarioBusqueda i = super.insertar(dato);

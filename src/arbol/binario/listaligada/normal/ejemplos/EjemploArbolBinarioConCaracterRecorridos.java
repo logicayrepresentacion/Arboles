@@ -22,7 +22,7 @@
  */
 package arbol.binario.listaligada.normal.ejemplos;
 
-import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
 import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
 import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
 

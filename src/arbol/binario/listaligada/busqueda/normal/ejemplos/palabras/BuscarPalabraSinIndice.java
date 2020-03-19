@@ -22,7 +22,7 @@
  */
 package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
 
-import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
 
 /**
  *
@@ -72,7 +72,7 @@ public class BuscarPalabraSinIndice {
                 + "¡un día en que ya nadie nos puede retener!";
         String[] cadenas = cadena.split(" ");
         
-        ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
+        ArbolBinarioBusquedaGenerico abb = new ArbolBinarioBusquedaGenerico();
 
     
         /**

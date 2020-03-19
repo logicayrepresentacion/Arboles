@@ -23,7 +23,7 @@
 package arbol.binario.listaligada.busqueda.normal.ejemplos.recorridos;
 
 import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
-import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
 
 /**
  *
@@ -33,7 +33,7 @@ public class EjemploRecorridos1y2 {
 
     public static void main(String[] args) throws Exception {
 
-        ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
+        ArbolBinarioBusquedaGenerico abb = new ArbolBinarioBusquedaGenerico();
         abb.insertar('a');
         abb.insertar('b');
         abb.insertar('d');

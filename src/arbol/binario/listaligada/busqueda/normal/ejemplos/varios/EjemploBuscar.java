@@ -22,7 +22,7 @@
  */
 package arbol.binario.listaligada.busqueda.normal.ejemplos.varios;
 
-import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
 
 /**
  *
@@ -32,7 +32,7 @@ public class EjemploBuscar {
 
     public static void main(String[] args) throws Exception {
 
-        ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
+        ArbolBinarioBusquedaGenerico abb = new ArbolBinarioBusquedaGenerico();
         
         String miCadena = " Definición\n"
                 + "Un tipo abstracto de datos (TAD) se defi ne como un conjunto de dominios D, un dominio d\n"

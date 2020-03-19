@@ -22,17 +22,17 @@
  */
 package arbol.binario.listaligada.busqueda.normal.ejemplos.indicepalabras;
 
-import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
 
 public class Palabra implements Comparable<Palabra> {
 
     private String cadena;
     private int contador = 0;
-    private final ArbolBinarioBusqueda abb;
+    private final ArbolBinarioBusquedaGenerico abb;
 
     public Palabra(String palabra) {
         this.cadena = palabra;
-        abb = new ArbolBinarioBusqueda();
+        abb = new ArbolBinarioBusquedaGenerico();
     }
 
     public String getPalabra() {
@@ -62,7 +62,7 @@ public class Palabra implements Comparable<Palabra> {
 
     @Override
     public String toString() {
-        ArbolBinarioBusqueda.inorden( abb.getRaiz() );
+        ArbolBinarioBusquedaGenerico.inorden( abb.getRaiz() );
         return  cadena + ":" + contador + " ";
     }
 

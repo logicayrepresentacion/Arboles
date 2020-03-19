@@ -37,7 +37,6 @@ public class NodoBinarioGenerico<T> {
         this.dato = dato;
     }
 
-
     public T getDato() {
         return dato;
     }
@@ -57,7 +56,6 @@ public class NodoBinarioGenerico<T> {
     public void setLd(NodoBinarioGenerico<T> ld) {
         this.ld = ld;
     }
-
 
     @Override
     public String toString() {

@@ -22,7 +22,7 @@
  */
 package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
 
-import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
 import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
 
 /**
@@ -33,7 +33,7 @@ public class ContarPalabrasSimple {
 
     public static void main(String[] args) throws Exception {
 
-        ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
+        ArbolBinarioBusquedaGenerico abb = new ArbolBinarioBusquedaGenerico();
 
         Palabra p = new Palabra("alejandro");
         NodoBinarioBusqueda nodoInsert = abb.insertar(p);
