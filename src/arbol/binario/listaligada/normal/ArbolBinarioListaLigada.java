@@ -35,7 +35,7 @@ import java.util.Stack;
  */
 public class ArbolBinarioListaLigada<E> {
 
-    protected NodoBinarioGenerico raiz;
+    protected NodoBinarioGenerico<E> raiz;
 
     public ArbolBinarioListaLigada() {
     }
@@ -54,6 +54,7 @@ public class ArbolBinarioListaLigada<E> {
 
     /**
      * Para la construcción de un arbol con las cadenas PRE e IN
+     *
      * @param preorden es una arreglo de caracteres para el preorden
      * @param inorden es un arreglo de caracteres para el inorden
      * @return Nodo raiz del arbol
@@ -144,8 +145,9 @@ public class ArbolBinarioListaLigada<E> {
 
     /**
      * Contar las hojas de un arbol
+     *
      * @param r
-     * @return 
+     * @return
      */
     public static int hojas(NodoBinarioGenerico r) {
         int hh = 0;
@@ -162,23 +164,16 @@ public class ArbolBinarioListaLigada<E> {
 
     /**
      * Se propone hacer estos metodos para contar las hojas
-     * 
-    public static void contarHojas() {
-        int numeroHojas = 0;
-        numeroHojas = contarHojasRecursivo(raiz, numeroHojas);
-    }
-
-    public static int contarHojasRecursivo(NodoBinario r, int nh) {
-        if (r != null) {
-            nh = nh + contarHojasRecursivo(r.getLi(), nh);
-            if (r.getLi() == null && r.getLd() == null) {
-                nh = nh + 1;
-            }
-            nh = nh + contarHojasRecursivo(r.getLd(), nh);
-        }
-        return nh;
-    }
-**/
+     *
+     * public static void contarHojas() { int numeroHojas = 0; numeroHojas =
+     * contarHojasRecursivo(raiz, numeroHojas); }
+     *
+     * public static int contarHojasRecursivo(NodoBinario r, int nh) { if (r !=
+     * null) { nh = nh + contarHojasRecursivo(r.getLi(), nh); if (r.getLi() ==
+     * null && r.getLd() == null) { nh = nh + 1; } nh = nh +
+     * contarHojasRecursivo(r.getLd(), nh); } return nh; }
+*
+     */
     /**
      * Recorrido por niveles
      */

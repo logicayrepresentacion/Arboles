@@ -36,7 +36,7 @@ public class EjemploArbolBinarioBusquedaConPersona {
      */
     public static void main(String[] args) {
 
-        class Persona implements Comparable<Object> {
+        class Persona implements Comparable<Persona> {
 
             String nombre;
 
@@ -50,8 +50,8 @@ public class EjemploArbolBinarioBusquedaConPersona {
             }
 
             @Override
-            public int compareTo(Object t1) {
-                Persona t = (Persona) t1;
+            public int compareTo(Persona t1) {
+                Persona t = t1;
                 String pb = t.nombre;
                 return nombre.compareToIgnoreCase(pb);
             }
@@ -64,15 +64,14 @@ public class EjemploArbolBinarioBusquedaConPersona {
         raiz.setLi(b);
 
         raiz.setLd(c);
-                
-        
+
         NodoBinarioBusqueda d = new NodoBinarioBusqueda(5655);
         NodoBinarioBusqueda e = new NodoBinarioBusqueda(45654);
 
         b.setLi(d);
 
         b.setLd(e);
-        
+
         ArbolBinarioListaLigada ab = new ArbolBinarioListaLigada();
 
         ab.setRaiz(raiz);
