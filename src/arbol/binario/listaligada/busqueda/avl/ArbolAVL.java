@@ -25,8 +25,9 @@ package arbol.binario.listaligada.busqueda.avl;
 /**
  *
  * @author cadav
+ * @param <T>
  */
-public class ArbolAVL {
+public class ArbolAVL<T extends Comparable> {
 
     NodoAVL root;
     NodoAVL ult;
@@ -35,7 +36,7 @@ public class ArbolAVL {
     public ArbolAVL() {
     }
 
-    public NodoAVL insertarDato(Comparable dato) {
+    public NodoAVL insertarDato(T dato) {
 
         System.out.println("dato " + dato);
         NodoAVL nodoAInsertar = new NodoAVL(dato);

@@ -32,6 +32,8 @@ public class NodoBinarioGenerico<T> {
     protected final T dato;
     private NodoBinarioGenerico<T> li;
     private NodoBinarioGenerico<T> ld;
+    // En casos avanzados
+    private int ancho;
 
     public NodoBinarioGenerico(T dato) {
         this.dato = dato;
@@ -55,6 +57,27 @@ public class NodoBinarioGenerico<T> {
 
     public void setLd(NodoBinarioGenerico<T> ld) {
         this.ld = ld;
+    }
+
+    public int getAncho() {
+        return ancho;
+    }
+
+    /**
+     * Este método es util para realizar grafica
+     *
+     * @return
+     */
+    public int recalcularAncho() {
+        System.out.println("recalcular ancho");
+        ancho = 1;
+        if (this.getLi() != null) {
+            ancho = ancho + this.getLi().recalcularAncho();
+        }
+        if (this.getLd() != null) {
+            ancho = ancho + this.getLd().recalcularAncho();
+        }
+        return ancho;
     }
 
     @Override
