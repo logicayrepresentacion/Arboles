@@ -78,7 +78,7 @@ public class EjemploArbolBinarioBusquedaConPersona {
 
         ab.recorrido1();
 
-        ab.recorrido2();
+        //ab.recorrido2();
 
     }
 

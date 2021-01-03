@@ -28,11 +28,11 @@ public class Palabra implements Comparable<Palabra> {
 
     private String cadena;
     private int contador = 0;
-    private final ArbolBinarioBusquedaGenerico abb;
+    private final ArbolBinarioBusquedaGenerico arbolPosiciones;
 
     public Palabra(String palabra) {
         this.cadena = palabra;
-        abb = new ArbolBinarioBusquedaGenerico();
+        arbolPosiciones = new ArbolBinarioBusquedaGenerico();
     }
 
     public String getPalabra() {
@@ -55,14 +55,14 @@ public class Palabra implements Comparable<Palabra> {
         this.contador++;
     }
     
-    public void insertarPosicion( int p ) throws Exception{
-        abb.insertar(p);
+    public void insertarPosicion( int pos ) throws Exception{
+        arbolPosiciones.insertar(pos);
     }
 
 
     @Override
     public String toString() {
-        ArbolBinarioBusquedaGenerico.inorden( abb.getRaiz() );
+        ArbolBinarioBusquedaGenerico.inorden( arbolPosiciones.getRaiz() );
         return  cadena + ":" + contador + " ";
     }
 

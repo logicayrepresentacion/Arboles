@@ -36,7 +36,7 @@ public class ArboleBinarioEnhebrado {
     }
 
     
-    public static NodoBinarioBusquedaEnhebrado parseABLL2ABE( NodoBinarioBusquedaEnhebrado raiz){
+    public static NodoBinarioBusquedaEnhebrado parseArbolBinarioBusquedaListaLLigada2ArbolBinarioBusquedaE( NodoBinarioBusquedaEnhebrado raiz){
         // Acá la logica del problema 5 de los ejercicios platenados en la guia
         return new NodoBinarioBusquedaEnhebrado("c");
     }

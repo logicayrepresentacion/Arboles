@@ -68,6 +68,7 @@ public class ContarPalabras1 {
                 + "en que levamos anclas para jamás volver...\n"
                 + "Un día en que discurren vientos ineluctables\n"
                 + "¡un día en que ya nadie nos puede retener!";
+        
         String[] cadenas = cadena.split(" ");
         
         IndicePalabrasABB indice = new IndicePalabrasABB();
@@ -76,8 +77,8 @@ public class ContarPalabras1 {
         /**
          * Insertar en el arbol todas las palabras
          */
-        for( String cad : cadenas){
-            indice.insertar(   new Palabra(cad));
+        for( String cadenaPalabra : cadenas){
+            indice.insertar(   new Palabra(cadenaPalabra));
         }
         
         long timea = System.currentTimeMillis();

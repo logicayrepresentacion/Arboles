@@ -130,6 +130,15 @@ public class ArbolNarioListaGeneralizada {
         this.raiz = raiz;
     }
 
+    /**
+     * Permite construir un arbol con un caracter que es la raiz
+     *
+     * @param raiz
+     */
+    public ArbolNarioListaGeneralizada(char raiz) {
+        this.raiz = new NodoNario(raiz);
+    }
+
     void mostrarPorListas() {
         Stack<NodoNario> migas = new Stack();
         migas.add(raiz);
@@ -382,9 +391,7 @@ public class ArbolNarioListaGeneralizada {
         if ((char) raiz.getDato() == (char) dato) {
             System.out.println("Es la raíz no tiene linea pura");
         }
-
         ancestros.push(raiz);
-
         // Recorrido con busqueda
         NodoNario r = raiz.getLiga();
         while (r != null) {
@@ -406,10 +413,12 @@ public class ArbolNarioListaGeneralizada {
 
             while (r == null && !migas.isEmpty()) {
                 r = (NodoNario) migas.pop();
+                ancestros.pop();
             }
         }
         System.out.println("Vamos a ver si tiene linea pura");
         System.out.println("La linea pura de " + dato + " es ");
+        System.out.println("Ancestros" + ancestros.size());
         while (!ancestros.empty()) {
             NodoNario padre = ancestros.pop();
             NodoNario primerHijo = padre.getLiga();

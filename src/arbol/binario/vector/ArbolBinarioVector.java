@@ -45,4 +45,32 @@ public class ArbolBinarioVector {
         }
     }
 
+    public String getAncestros(char x) throws Exception {
+        StringBuilder ancestros = new StringBuilder();
+
+        int i = 0;
+        for (i = 0; i < registros.length; i++) {
+            char registro = registros[i];
+            if (registro == x) {
+                break;
+            }
+        }
+        if (i >= registros.length) {
+            throw new Exception("El registro " + x + " no se encuentra en el arbol");
+        }
+
+        if (i == 0) {
+            return ancestros.toString();
+        }
+
+        int pos = i;
+        while (pos >= 0) {
+            pos = (i % 2 == 0) ? i - 1 : i;
+            i = pos / 2;
+            ancestros.append(registros[i]);
+        }
+
+        return ancestros.toString();
+    }
+
 }

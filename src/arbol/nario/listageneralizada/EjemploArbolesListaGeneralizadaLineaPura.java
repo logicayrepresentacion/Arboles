@@ -34,10 +34,14 @@ public class EjemploArbolesListaGeneralizadaLineaPura {
     public static void main(String[] args) {
         String h = "(a(b(c,d(e)),f,g(h,i(j,k(l)),m,n)))";
         ArbolNarioListaGeneralizada arbolLG = new ArbolNarioListaGeneralizada(h);
-        
+
         arbolLG.lineaPura('e');
         System.out.println("");
         arbolLG.lineaPura('j');
+        arbolLG.insertarNuevoHijo('l', 'z');
+        arbolLG.insertarNuevoHijo('z', 'y');
+        arbolLG.insertarNuevoHijo('y', 'x');
+        arbolLG.lineaPura('x');
 
     }
 

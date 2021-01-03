@@ -20,30 +20,52 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.busqueda.normal.ejemplos.palabras;
+package arbol.binario.listaligada.busqueda.normal.ejemplos.varios;
+
+import arbol.binario.listaligada.busqueda.normal.ArbolBinarioBusquedaGenerico;
+import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
+import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
 
 /**
  *
  * @author Alejandro
  */
-public class ContarPalabras {
+public class EjemploArbolBinarioBusquedaConPersonaRestringido {
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) throws Exception {
 
-        
-        IndicePalabrasABB abb = new IndicePalabrasABB();
-        Palabra p = new Palabra("alejandro");
-        abb.insertar(p);
+        class Persona implements Comparable<Persona> {
 
-        p = new Palabra("alejandro");
-        abb.insertar(p);
-        
+            String nombre;
 
-        p = new Palabra("aclejandro");
-        abb.insertar(p);
-        
-        abb.imprimirCantidades();
-        //abb.recorrido1();
-        //abb.recorrido2();
+            public Persona(String nombre) {
+                this.nombre = nombre;
+            }
+
+            @Override
+            public String toString() {
+                return "Mi nombre " + nombre;
+            }
+
+            @Override
+            public int compareTo(Persona t1) {
+                Persona t = t1;
+                String pb = t.nombre;
+                return nombre.compareToIgnoreCase(pb);
+            }
+        }
+
+        ArbolBinarioBusquedaGenerico abbg = new ArbolBinarioBusquedaGenerico();
+        abbg.insertar(new Persona("Alejandro"));
+        abbg.insertar(new Persona("Pedro"));
+        abbg.insertar(new Persona("Aaron"));
+
+        abbg.recorrido1();
+
+        //ab.recorrido2();
     }
+
 }

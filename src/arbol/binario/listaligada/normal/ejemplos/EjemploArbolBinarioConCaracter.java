@@ -24,6 +24,8 @@ package arbol.binario.listaligada.normal.ejemplos;
 
 import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
 import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
+import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
+import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
 
 /**
  *

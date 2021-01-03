@@ -281,7 +281,7 @@ public class ArbolAVL<T extends Comparable> {
                 }
             }
         }
-        return aux;
+        return null;
     }
 
     public NodoAVL getRoot() {

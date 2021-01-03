@@ -35,7 +35,7 @@ public class MyD extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jTextFieldPalabra = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        buttonBuscar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaResultado = new javax.swing.JTextArea();
@@ -49,11 +49,11 @@ public class MyD extends javax.swing.JFrame {
 
         jTextFieldPalabra.setToolTipText("Ingrese la palabra a buscar");
 
-        jButton1.setText("Buscar");
-        jButton1.setToolTipText("Buscar la palabra en el diccionario");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        buttonBuscar.setText("Buscar");
+        buttonBuscar.setToolTipText("Buscar la palabra en el diccionario");
+        buttonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                buttonBuscarMouseClicked(evt);
             }
         });
 
@@ -67,7 +67,7 @@ public class MyD extends javax.swing.JFrame {
                     .addComponent(jTextFieldPalabra)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(buttonBuscar)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -76,7 +76,7 @@ public class MyD extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(buttonBuscar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -170,10 +170,10 @@ public class MyD extends javax.swing.JFrame {
         jButtonCargar.setEnabled(false);
     }//GEN-LAST:event_jButtonCargarMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void buttonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarMouseClicked
         diccionario.buscar( jTextFieldPalabra.getText());
         
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_buttonBuscarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -212,7 +212,7 @@ public class MyD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonBuscar;
     private javax.swing.JButton jButtonCargar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCantidad;

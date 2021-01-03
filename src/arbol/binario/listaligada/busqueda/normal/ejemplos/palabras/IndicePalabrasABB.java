@@ -56,8 +56,8 @@ class IndicePalabrasABB extends ArbolBinarioBusquedaGenerico {
     }
 
     @Override
-    public NodoBinarioBusqueda insertar(Comparable dato) throws Exception {
-        NodoBinarioBusqueda i = super.insertar(dato);
+    public NodoBinarioBusqueda insertar(Comparable cadenaPalabradato) throws Exception {
+        NodoBinarioBusqueda i = super.insertar(cadenaPalabradato);
         if (i != null) {
             Palabra p = (Palabra) (i.getDato());
             int c = p.getContador();
