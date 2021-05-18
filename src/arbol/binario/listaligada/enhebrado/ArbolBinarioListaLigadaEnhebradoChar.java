@@ -13,11 +13,17 @@ public class ArbolBinarioListaLigadaEnhebradoChar {
 
     NodoBinarioEnhebradoChar cabeza;
 
+    public ArbolBinarioListaLigadaEnhebradoChar() {
+        cabeza = new NodoBinarioEnhebradoChar((char) 0);
+    }
+
     public void inorden() {
-        NodoBinarioEnhebradoChar p = siguiente(cabeza);
-        while (cabeza != p) {
-            System.out.println(p.getDato());
-            p = siguiente(p);
+        if (cabeza != null) {
+            NodoBinarioEnhebradoChar p = siguiente(cabeza);
+            while (cabeza != p && p != null) {
+                System.out.println(p.getDato());
+                p = siguiente(p);
+            }
         }
     }
 

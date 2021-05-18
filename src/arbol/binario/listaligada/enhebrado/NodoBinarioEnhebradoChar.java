@@ -19,6 +19,8 @@ public class NodoBinarioEnhebradoChar {
 
     public NodoBinarioEnhebradoChar(char dato) {
         this.dato = dato;
+        bi = false;
+        bd = false;
     }
 
     public boolean isBi() {
