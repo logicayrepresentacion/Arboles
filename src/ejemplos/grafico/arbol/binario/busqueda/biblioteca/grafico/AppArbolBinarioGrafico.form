@@ -113,7 +113,7 @@
         </Property>
       </Properties>
     </Component>
-    <Container class="ejemplos.grafico.arbol.binario.busqueda.biblioteca.IndiceLibrosArbolBinarioGrafico" name="indiceLibrosArbolBinarioGrafico1">
+    <Container class="ejemplos.grafico.arbol.binario.busqueda.biblioteca.grafico.IndiceLibrosArbolBinarioGrafico" name="indiceLibrosArbolBinarioGrafico1">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">

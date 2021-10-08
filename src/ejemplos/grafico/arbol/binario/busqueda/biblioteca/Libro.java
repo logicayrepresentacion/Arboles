@@ -9,7 +9,7 @@ package ejemplos.grafico.arbol.binario.busqueda.biblioteca;
  *
  * @author ealej
  */
-class Libro implements Comparable<Libro> {
+public class Libro implements Comparable<Libro> {
 
     private int id;
     private String nombre;
@@ -89,18 +89,21 @@ class Libro implements Comparable<Libro> {
      */
     @Override
     public int compareTo(Libro o) {
-        if (this.id == o.getId()) {
-            return 0;
-        } else if (this.id > o.getId()) {
-            return 1;
-        } else {
-            return -1;
-        }
+//        if (this.id == o.getId()) {
+//            return 0;
+//        } else if (this.id > o.getId()) {
+//            return 1;
+//        } else {
+//            return -1;
+//        }
+    
+        return this.id - o.getId();
+
     }
 
     @Override
     public String toString() {
-        return "Id: " + id + " Nombre: " + this.nombre;
+        return "Id:" + id + "|Nombre:" + this.nombre;
     }
 
 }

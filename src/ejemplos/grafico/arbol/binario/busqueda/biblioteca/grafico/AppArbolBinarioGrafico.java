@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejemplos.grafico.arbol.binario.busqueda.biblioteca;
+package ejemplos.grafico.arbol.binario.busqueda.biblioteca.grafico;
 
+import ejemplos.grafico.arbol.binario.busqueda.biblioteca.Libro;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,7 +32,7 @@ public class AppArbolBinarioGrafico extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelError = new javax.swing.JLabel();
-        indiceLibrosArbolBinarioGrafico1 = new ejemplos.grafico.arbol.binario.busqueda.biblioteca.IndiceLibrosArbolBinarioGrafico();
+        indiceLibrosArbolBinarioGrafico1 = new ejemplos.grafico.arbol.binario.busqueda.biblioteca.grafico.IndiceLibrosArbolBinarioGrafico();
         jPanel1 = new javax.swing.JPanel();
         jTextFieldId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -288,7 +289,7 @@ public class AppArbolBinarioGrafico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
-    private ejemplos.grafico.arbol.binario.busqueda.biblioteca.IndiceLibrosArbolBinarioGrafico indiceLibrosArbolBinarioGrafico1;
+    private ejemplos.grafico.arbol.binario.busqueda.biblioteca.grafico.IndiceLibrosArbolBinarioGrafico indiceLibrosArbolBinarioGrafico1;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

@@ -12,12 +12,15 @@ import arbol.binario.listaligada.normal.NodoBinarioChar;
  *
  * @author 57300
  */
-public class EjemploArbolBinarioChar1 {
+public class EjemploArbolBinarioChar1Grado {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         String hilera = "(a(b,c(d(f(z,),g),e(h(,k),i))))";
         NodoBinarioChar raiz = ArbolBinarioListaLigadaChar.convertirHilera(hilera);
         System.out.println("raiz " + raiz);
+
+        ArbolBinarioListaLigadaChar abllc = new ArbolBinarioListaLigadaChar(raiz);
+        System.out.println(" Hijos e " + abllc.getGrado('e'));
 
         //ArbolBinarioListaLigadaChar.inorden(raiz);
     }

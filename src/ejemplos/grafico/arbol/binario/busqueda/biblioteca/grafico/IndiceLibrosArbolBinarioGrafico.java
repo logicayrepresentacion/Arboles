@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejemplos.grafico.arbol.binario.busqueda.biblioteca;
+package ejemplos.grafico.arbol.binario.busqueda.biblioteca.grafico;
 
+import ejemplos.grafico.arbol.binario.busqueda.biblioteca.Libro;
+import ejemplos.grafico.arbol.binario.busqueda.biblioteca.NodoBinario;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.Stack;

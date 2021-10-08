@@ -152,7 +152,7 @@ public class ArbolBinarioListaLigadaChar {
                     u = x;
                     i = i + 2;
                 } else if (c[i + 1] == ')') { // Finaliza hijo derecho
-
+                    break;
                 } else {  // átomo
 
                 }
@@ -170,7 +170,7 @@ public class ArbolBinarioListaLigadaChar {
      * @throws java.lang.Exception
      */
     public static NodoBinarioChar construyeArbolCadenaPREyIN(char[] preorden, char[] inorden) throws Exception {
-        NodoBinarioChar r = reconstuir(preorden, inorden);
+        NodoBinarioChar r = reconstuirPREeIN(preorden, inorden);
         return r;
     }
 
@@ -182,7 +182,7 @@ public class ArbolBinarioListaLigadaChar {
      * @param inorden
      * @return
      */
-    private static NodoBinarioChar reconstuir(char[] preorden, char[] inorden) throws Exception {
+    private static NodoBinarioChar reconstuirPREeIN(char[] preorden, char[] inorden) throws Exception {
         /**
          * Se extrae el dato con la raiz de esta ejecución y se crea el nodo con
          * ese caracter
@@ -194,24 +194,38 @@ public class ArbolBinarioListaLigadaChar {
          * Evalua la parte más izquierda
          */
         int posDatoRaizEnInorden = buscarEnVector(inorden, datoRaiz);
-        char[] nuevoVectorInorden = cortarIzquierda(inorden, posDatoRaizEnInorden);
+        char[] parteIzquierdaInOrden = cortarIzquierda(inorden, posDatoRaizEnInorden);
+        char[] parteDerechaInOrden = cortarDerecha(inorden, posDatoRaizEnInorden);
+
+        /**
+         * Proceso la parte izquierda
+         */
+        char[] nuevoVectorInorden = parteIzquierdaInOrden;
         int posPreorden = 0;
         char[] nuevoPreorden;
         if (nuevoVectorInorden.length != 0) {
             posPreorden = nuevoVectorInorden.length;
             nuevoPreorden = cortarNDatos(preorden, 1, posPreorden + 1);
             if (posPreorden != 0) {
-                raiz.setLi(reconstuir(nuevoPreorden, nuevoVectorInorden)); // Llamado recursivo
+                /**
+                 * Llamada recursiva luego de cortar la cadena
+                 */
+                NodoBinarioChar raizSubArbolIzquierdo = reconstuirPREeIN(nuevoPreorden, nuevoVectorInorden); // Llamado recursivo
+                raiz.setLi(raizSubArbolIzquierdo);
             }
         }
 
         /**
          * Evalua la parte más derecha
          */
-        nuevoVectorInorden = cortarDerecha(inorden, posDatoRaizEnInorden);
+        nuevoVectorInorden = parteDerechaInOrden;
         if (nuevoVectorInorden.length != 0) {
             nuevoPreorden = cortarNDatos(preorden, posPreorden + 1, nuevoVectorInorden.length + posPreorden + 1);
-            raiz.setLd(reconstuir(nuevoPreorden, nuevoVectorInorden));
+            /**
+             * Llamada recursiva luego de cortar la cadena
+             */
+            NodoBinarioChar raizSubArbolDerecho = reconstuirPREeIN(nuevoPreorden, nuevoVectorInorden);
+            raiz.setLd(raizSubArbolDerecho);
         }
         return raiz;
     }
@@ -237,12 +251,45 @@ public class ArbolBinarioListaLigadaChar {
         return Arrays.copyOfRange(arr, 0, pdrin);
     }
 
-    private static char[] cortarNDatos(char[] arr, int i, int f) {
-        return Arrays.copyOfRange(arr, i, f);
+    private static char[] cortarNDatos(char[] arr, int posicionInicial, int posicionFinal) {
+        return Arrays.copyOfRange(arr, posicionInicial, posicionFinal);
     }
 
     private static char[] cortarDerecha(char[] arr, int pdrin) {
         return Arrays.copyOfRange(arr, pdrin + 1, arr.length);
+    }
+
+    public int getGrado(char c) throws Exception {
+        NodoBinarioChar r;
+        NodoBinarioChar nodoEncontrado = null;
+        if (raiz == null) {
+            throw new Exception("ho hay datos");
+        }
+        // Encontrar el nodo solicitado
+        Stack<NodoBinarioChar> pila = new Stack();
+        pila.push(raiz);
+        while (!pila.isEmpty()) {
+            r = pila.pop();
+            if (r.getDato() == c) {
+                nodoEncontrado = r;
+                break;
+            }
+            if (r.getLi() != null) {
+                pila.push(r.getLi());
+            }
+            if (r.getLd() != null) {
+                pila.push(r.getLd());
+            }
+        }
+
+        // Contar si tiene hijo izq y si tiene hijo der
+        if (nodoEncontrado != null) {
+            int gi = (nodoEncontrado.getLi() == null) ? 0 : 1;
+            int gd = (nodoEncontrado.getLd() == null) ? 0 : 1;
+            return (gi + gd);
+        } else {
+            throw new Exception("ho existe el dato");
+        }
     }
 
 }

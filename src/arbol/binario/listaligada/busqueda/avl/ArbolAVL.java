@@ -22,6 +22,9 @@
  */
 package arbol.binario.listaligada.busqueda.avl;
 
+import java.io.IOException;
+import java.io.Writer;
+
 /**
  *
  * @author cadav
@@ -29,7 +32,8 @@ package arbol.binario.listaligada.busqueda.avl;
  */
 public class ArbolAVL<T extends Comparable> {
 
-    NodoAVL root;
+    private NodoAVL raiz;
+    private int altura;
     NodoAVL ult;
     NodoAVL x;
 
@@ -38,17 +42,28 @@ public class ArbolAVL<T extends Comparable> {
 
     public NodoAVL insertarDato(T dato) {
 
-        System.out.println("dato " + dato);
+        /**
+         * Crear el nodo a partir del dato
+         */
         NodoAVL nodoAInsertar = new NodoAVL(dato);
-        if (root == null) {
-            root = nodoAInsertar;
-            return root;
+
+        /**
+         * Si aún no tengo raíz
+         */
+        if (raiz == null) {
+            raiz = nodoAInsertar;
+            return raiz;
         }
-        NodoAVL nodoRecorrido = root; // Registro que uso para buscar
+
+        /**
+         * variables para hacer el recorrido tener presente los nodos Q, P, R,
+         * padres recorrido
+         */
+        NodoAVL nodoRecorrido = raiz; // Registro que uso para buscar
         NodoAVL padreNodoRecorridoX = null;
-        NodoAVL pivote = root; // Nodo que se puede desvalancear
+        NodoAVL pivote = raiz; // Nodo que se puede desvalancear, la duda (P)
         NodoAVL padrePivote = null;
-        NodoAVL nodoRecorridoParaFB;
+        NodoAVL nodoRecorridoParaFB; // desde donde rebalancear
         NodoAVL q;
 
         /**
@@ -62,18 +77,21 @@ public class ArbolAVL<T extends Comparable> {
                 pivote = nodoRecorrido;
                 padrePivote = padreNodoRecorridoX;
             }
-            // 
+            // Comparo para moverme por Izq o Der y localizar donde insertar
             int comparacion = nodoAInsertar.getDato().compareTo(nodoRecorrido.getDato());
             if (comparacion == 0) {
-                //es un dato existente
+                //es un dato existente, retorno el nodo
                 return nodoRecorrido;
             } else if (comparacion < 0) {
                 // n es menor
                 padreNodoRecorridoX = nodoRecorrido;
+                // movimiento por la IZQ
                 nodoRecorrido = (NodoAVL) nodoRecorrido.getLi();
+
             } else {
                 //n es mayor
                 padreNodoRecorridoX = nodoRecorrido;
+                // movimiento por la DER
                 nodoRecorrido = (NodoAVL) nodoRecorrido.getLd();
             }
         }
@@ -81,7 +99,8 @@ public class ArbolAVL<T extends Comparable> {
         /**
          * Insertar el dato
          */
-        if (nodoAInsertar.getDato().compareTo(padreNodoRecorridoX.getDato()) > 0) {
+        int comparacion = nodoAInsertar.getDato().compareTo(padreNodoRecorridoX.getDato());
+        if (comparacion > 0) {
             padreNodoRecorridoX.setLd(nodoAInsertar);
         } else if (nodoAInsertar.getDato().compareTo(padreNodoRecorridoX.getDato()) < 0) {
             padreNodoRecorridoX.setLi(nodoAInsertar);
@@ -111,29 +130,26 @@ public class ArbolAVL<T extends Comparable> {
         }
 
         /**
-         * Rebalancear
+         * Valido si el nodo duda (P) quedo desbalanceado
          */
         if (!((pivote.getfB() == -2) || (pivote.getfB() == 2))) {
             return nodoAInsertar;
         }
 
-        // Estamos tentados a cambiar de raiz
-        NodoAVL nuevaRaizSubArbol = null;
+        /**
+         * En caso que si quedara desbalanceado Según las 4 opciones de balanceo
+         */
+        NodoAVL nuevaRaizSubArbol = null; // Estamos tentados a cambiar de raiz
         if (pivote.getfB() == +2) {
             if (q.getfB() == +1) {
-                System.out.println("rotacionDerecha");
                 nuevaRaizSubArbol = rotacionDerecha(pivote, q);
             } else {
-                System.out.println("dobleRotacionDerecha");
                 nuevaRaizSubArbol = dobleRotacionDerecha(pivote, q);
             }
         } else if (pivote.getfB() == -2) {
             if (q.getfB() == -1) {
-                System.out.println("rotacionIzquierda");
                 nuevaRaizSubArbol = rotacionIzquierda(pivote, q);
-
             } else {
-                System.out.println("dobleRotacionIzquierda");
                 nuevaRaizSubArbol = dobleRotacionIzquierda(pivote, q);
             }
         }
@@ -143,7 +159,7 @@ public class ArbolAVL<T extends Comparable> {
          * raíz
          */
         if (padrePivote == null) {
-            root = nuevaRaizSubArbol;
+            raiz = nuevaRaizSubArbol;
             return nodoAInsertar;
         }
 
@@ -234,7 +250,6 @@ public class ArbolAVL<T extends Comparable> {
         NodoAVL r = (NodoAVL) q.getLi();
         q.setLi(r.getLd());
         r.setLd(q);
-
         p.setLd(r.getLi());
         r.setLi(p);
         switch (r.getfB()) {
@@ -261,8 +276,8 @@ public class ArbolAVL<T extends Comparable> {
      * @param dato
      * @return
      */
-    public NodoAVL buscar(Comparable dato) {
-        NodoAVL aux = root;
+    public NodoAVL buscar(T dato) {
+        NodoAVL aux = raiz;
         while (aux != null) {
 
             if (aux.getDato().compareTo(dato) == 0) {
@@ -285,7 +300,19 @@ public class ArbolAVL<T extends Comparable> {
     }
 
     public NodoAVL getRoot() {
-        return root;
+        return raiz;
+    }
+
+    public void inorden(Writer salida) throws IOException {
+        inordenR(this.raiz, salida);
+    }
+
+    private static void inordenR(NodoAVL r, Writer salida) throws IOException {
+        if (r != null) {
+            inordenR((NodoAVL) r.getLi(), salida);
+            salida.write(r.getDato().toString() + "\n");
+            inordenR((NodoAVL) r.getLd(), salida);
+        }
     }
 
 }

@@ -22,6 +22,16 @@ public class ArbolBinarioVector {
         this.registros = registros;
     }
 
+    /**
+     * Crea un arbol binario a partir de una hilera de caracteres
+     * con ( ) az ,
+     * @param hilera 
+     */
+    public ArbolBinarioVector(String hilera) {
+        // Todo
+    }    
+    
+    
     public int getGrado(char x) throws Exception {
         int i = 0;
         for (i = 0; i < registros.length; i++) {

@@ -36,6 +36,12 @@ public class ArbolNarioListaGeneralizada {
     final static boolean TRANSFORMAR = true;
     final static boolean NOTRANSFORMAR = false;
 
+    /**
+     * Convertir una hilera de caracteres que representa un arbol en su
+     * representación en memoria
+     *
+     * @param h Hilera de caracteres como (,) az-AZ validos.
+     */
     public ArbolNarioListaGeneralizada(String h) {
         char[] cadena = h.toCharArray();
         int longitudCadena = cadena.length;
@@ -126,6 +132,11 @@ public class ArbolNarioListaGeneralizada {
 
         return anlg;
     }*/
+    /**
+     * Otro constructor
+     *
+     * @param raiz
+     */
     private ArbolNarioListaGeneralizada(NodoNario raiz) {
         this.raiz = raiz;
     }
@@ -139,6 +150,9 @@ public class ArbolNarioListaGeneralizada {
         this.raiz = new NodoNario(raiz);
     }
 
+    /**
+     * Es una forma de pintar el arbol
+     */
     void mostrarPorListas() {
         Stack<NodoNario> migas = new Stack();
         migas.add(raiz);
@@ -146,9 +160,9 @@ public class ArbolNarioListaGeneralizada {
             NodoNario pr = migas.pop();
             while (pr != null) {
                 if (pr.getSw() == 0) {
-                    System.out.print(pr.getDato());
+                    System.out.print(pr.getDato()); // Operar el recorrido
                 } else {
-                    NodoNario npr = (NodoNario) pr.getDato();
+                    NodoNario npr = (NodoNario) pr.getDato(); // Operar
                     migas.add(npr);
                 }
                 pr = pr.getLiga();
@@ -156,6 +170,9 @@ public class ArbolNarioListaGeneralizada {
         }
     }
 
+    /**
+     * Falta completar
+     */
     void mostrarHileraSoloLetras() {
         Stack<NodoNario> migas = new Stack();
         NodoNario u = raiz;
@@ -184,6 +201,9 @@ public class ArbolNarioListaGeneralizada {
         System.out.print(")");
     }
 
+    /**
+     * Completar
+     */
     void mostrarHilera() {
         Stack<NodoNario> migas = new Stack();
         NodoNario ultimo = raiz;
@@ -213,16 +233,19 @@ public class ArbolNarioListaGeneralizada {
         System.out.print(")");
     }
 
+    /**
+     * Validar
+     */
     public void imprimirXNivel() {
         NodoNario r = raiz;
         Queue<NodoNario> cola = new LinkedList<>();
         while (r != null) {
             if (r.getSw() == 1) {
                 NodoNario realHijo = (NodoNario) r.getDato();
-                System.out.print(realHijo.getDato());
+                System.out.print(realHijo.getDato()); // operación
                 cola.add(realHijo.getLiga());
             } else {
-                System.out.print(r.getDato());
+                System.out.print(r.getDato()); // operación
             }
             r = r.getLiga();
             if (r == null && !cola.isEmpty()) {
@@ -231,6 +254,11 @@ public class ArbolNarioListaGeneralizada {
         }
     }
 
+    /**
+     * 
+     * @param d
+     * @throws Exception 
+     */
     public void imprimirHijosNodo(char d) throws Exception {
         NodoNario recorrido = raiz;
         Queue<NodoNario> cola = new LinkedList<>();
@@ -283,6 +311,11 @@ public class ArbolNarioListaGeneralizada {
         return cadena.toString();
     }
 
+    /**
+     * 
+     * @param ob
+     * @param dato 
+     */
     public void insertarNuevoHijo(char ob, char dato) {
         NodoNario recorrido = raiz;
         Queue<NodoNario> miga = new LinkedList<>();
@@ -312,6 +345,12 @@ public class ArbolNarioListaGeneralizada {
         }
     }
 
+    /**
+     * 
+     * @param r
+     * @param dato
+     * @param TRANSFORMAR 
+     */
     private void insertarHijo(NodoNario r, char dato, boolean TRANSFORMAR) {
         NodoNario nuevoHijo = new NodoNario(dato);
         if (TRANSFORMAR) {
@@ -325,6 +364,12 @@ public class ArbolNarioListaGeneralizada {
         }
     }
 
+    /**
+     * 
+     * @param x
+     * @return
+     * @throws Exception 
+     */
     public int determinarGrado(char x) throws Exception {
 
         Stack migas = new Stack();

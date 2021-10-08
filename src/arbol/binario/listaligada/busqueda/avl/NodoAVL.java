@@ -29,7 +29,7 @@ import arbol.binario.listaligada.busqueda.normal.NodoBinarioBusqueda;
  * @author cadav
  * @param <T>
  */
-public class NodoAVL<T extends Comparable> extends NodoBinarioBusqueda {
+public class NodoAVL<T extends Comparable> extends NodoBinarioBusqueda<T> {
     
     private int fB;
 
