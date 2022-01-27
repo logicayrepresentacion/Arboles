@@ -32,9 +32,13 @@ public class Ejemplo1ArbolesListaGeneralizada {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String hilera = "(a(b(c,d(e)),f,g(h,i(j,k(l)),m,n)))";
+        //String hilera = "(a(b(c,d(e)),f,g(h,i(j,k(l)),m,n)))";
+        //String hilera = "(a)";
+        //String hilera = "(a(b))";
+        //String hilera = "(a(b,c))";
+        String hilera = "(a(b(d),c(e)))";
         System.out.println(hilera);
-        ArbolNarioListaGeneralizada arbolLG = new ArbolNarioListaGeneralizada(hilera);
+        ArbolNarioListaGeneralizadaCaracteres arbolLG = new ArbolNarioListaGeneralizadaCaracteres(hilera);
         arbolLG.mostrarHilera();
 
     }

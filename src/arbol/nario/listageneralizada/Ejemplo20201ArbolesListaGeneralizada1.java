@@ -13,9 +13,10 @@ public class Ejemplo20201ArbolesListaGeneralizada1 {
 
     public static void main(String[] args) {
 
-        ArbolNarioListaGeneralizada anlg = new ArbolNarioListaGeneralizada('a');
+        ArbolNarioListaGeneralizadaCaracteres anlg = new ArbolNarioListaGeneralizadaCaracteres('a');
         anlg.mostrarHilera();
         anlg.insertarNuevoHijo('a', 'b');
+        System.out.println("");
         anlg.mostrarHilera();
     }
 }
