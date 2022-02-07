@@ -7,6 +7,7 @@ package arbol.nario.binariolistaligada;
 
 import arbol.binario.listaligada.normal.NodoBinarioChar;
 import arbol.nario.listageneralizada.ArbolNarioListaGeneralizada;
+import arbol.nario.listageneralizada.ArbolNarioListaGeneralizadaCaracteres;
 import arbol.nario.listageneralizada.NodoNario;
 
 /**
@@ -17,9 +18,10 @@ public class EjemploConversionNario {
 
     public static void main(String[] args) {
         String hilera = "(a(b(c,d(e)),f,g(h,i(j,k(l)),m,n)))";
-        ArbolNarioListaGeneralizada arbolNarioListaGeneralizada = new ArbolNarioListaGeneralizada(hilera);
+        ArbolNarioListaGeneralizadaCaracteres arbolNarioListaGeneralizada = new ArbolNarioListaGeneralizadaCaracteres(hilera);
         NodoNario raizListaGeneralizada = arbolNarioListaGeneralizada.getRaiz();
-        NodoBinarioChar raizNodoBinarioChar = UtilidadesArbolBinarioListaLigadaChar.convertirArbolNario2ArbolBinario(raizListaGeneralizada);
+        NodoBinarioChar raizNodoBinarioChar = UtilidadesArbolBinarioListaLigadaChar.convertirArbolNario2ArbolBinarioChar(raizListaGeneralizada);
+        
         ArbolNarioBinarioListaLigadaChar.inorden(raizNodoBinarioChar);
         System.out.println("");
         ArbolNarioBinarioListaLigadaChar arbolNarioBinarioListaLigadaChar = new ArbolNarioBinarioListaLigadaChar(raizNodoBinarioChar);
